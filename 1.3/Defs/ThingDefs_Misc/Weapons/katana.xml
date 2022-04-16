@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>MeleeWeapon_MGR_Katana</defName>
+        <label>MGR Katana</label>
+        <description>Hehe slicy dicy</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>			
+        </graphicData>
+        <size>(1,1)</size>
+        <techLevel>Spacer</techLevel>
+        <weaponTags>
+            <li>MedievalMeleeAdvanced</li>
+            <li>LongSword</li>
+        </weaponTags>
+		<costList>
+			<Steel>25</Steel>
+			<Plasteel>10</Plasteel>
+			<Gold>10</Gold>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentSpacer>3</ComponentSpacer>
+		</costList>
+        <thingSetMakerTags>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <statBases>
+            <WorkToMake>18000</WorkToMake>
+            <Mass>1.5</Mass>
+        </statBases>
+        <relicChance>2</relicChance>
+        <equippedAngleOffset>0</equippedAngleOffset>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>15</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>50</power>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>50</power>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+        </tools>
+        <recipeMaker>
+            <researchPrerequisite>LongBlades</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>5</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+
+    </ThingDef>
+</Defs>
