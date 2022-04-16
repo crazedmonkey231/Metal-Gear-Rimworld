@@ -4,6 +4,7 @@
   <ThingDef ParentName="ApparelBase">
     <defName>MGR_Apparel_Exoframe</defName>
     <label>mgr exoskeleton frame</label>
+	<thingClass>MGRApparel.MGR_ExoFrame</thingClass>
     <description>***DESCRIPTION***</description>
     <techLevel>Industrial</techLevel>
     <recipeMaker>

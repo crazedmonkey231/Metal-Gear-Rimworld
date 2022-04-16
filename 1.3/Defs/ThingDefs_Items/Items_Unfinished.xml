@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedHealthItemMonsoonBionic</defName>
+        <label>unfinished monsoon bionic</label>
+        <description>An monsoon unfinished bionic.</description>
+        <statBases>
+            <Flammability>0</Flammability>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Bionic/Unfinished/Monsoon_Unfinished</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories Inherit="false" />
+    </ThingDef>
+</Defs>
