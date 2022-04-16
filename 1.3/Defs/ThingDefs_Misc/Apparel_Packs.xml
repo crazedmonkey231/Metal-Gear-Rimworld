@@ -2,8 +2,8 @@
 <Defs>
 
   <ThingDef ParentName="ApparelBase">
-    <defName>VWE_Apparel_Exoframe</defName>
-    <label>exoskeleton frame</label>
+    <defName>MGR_Apparel_Exoframe</defName>
+    <label>mgr exoskeleton frame</label>
     <description>***DESCRIPTION***</description>
     <techLevel>Industrial</techLevel>
     <recipeMaker>
@@ -28,7 +28,7 @@
 	  <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <graphicData>
-      <texPath>Things/Apparel/Exoframe/ExoFrame</texPath>
+      <texPath>Things/Apparel/Exoframe/MGR_ExoFrame</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tickerType>Normal</tickerType>
@@ -48,7 +48,7 @@
     </thingCategories>
     <apparel>
       <scoreOffset>4</scoreOffset>
-      <wornGraphicPath>Things/Apparel/Exoframe/ExoFrame</wornGraphicPath>
+      <wornGraphicPath>Things/Apparel/Exoframe/MGR_ExoFrame</wornGraphicPath>
       <wornGraphicData>
         <renderUtilityAsPack>true</renderUtilityAsPack>
         <east>
@@ -87,27 +87,6 @@
     <tradeTags>
       <li>ExoticMisc</li>
     </tradeTags>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>(0.3,0.3,0.3,1)</min>
-          <max>(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>(0.9,0.9,0.9,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
   </ThingDef>
 
 </Defs>
