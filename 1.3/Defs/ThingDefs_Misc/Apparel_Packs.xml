@@ -40,9 +40,9 @@
       <EquipDelay>12</EquipDelay>
     </statBases>
 		<equippedStatOffsets>
-			<WorkSpeedGlobal>0.05</WorkSpeedGlobal>
-			<MoveSpeed>0.2</MoveSpeed>
-			<CarryingCapacity>15</CarryingCapacity>
+			<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+			<MoveSpeed>0.5</MoveSpeed>
+			<CarryingCapacity>25</CarryingCapacity>
 		</equippedStatOffsets>
     <thingCategories>
       <li>ApparelUtility</li>
@@ -88,6 +88,12 @@
     <tradeTags>
       <li>ExoticMisc</li>
     </tradeTags>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+		<wickTicks>1</wickTicks>
+      </li>
+    </comps>
   </ThingDef>
-
 </Defs>

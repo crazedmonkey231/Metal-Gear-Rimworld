@@ -1,5 +1,7 @@
 ﻿using MGRApparel.MGRGizmo;
+using MGRRimworld;
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -24,6 +26,10 @@ namespace MGRApparel
         private int KeepDisplayingTicks = 1000;
         private float ApparelScorePerEnergyMax = 0.25f;
 
+        private bool canFire = true;
+
+
+
         //private static readonly Material BubbleMat = MaterialPool.MatFrom("Shields/shield_a", ShaderDatabase.Transparent);
 
         private float EnergyMax => this.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true);
@@ -31,6 +37,9 @@ namespace MGRApparel
         private float EnergyGainPerTick => this.GetStatValue(StatDefOf.EnergyShieldRechargeRate, true) / 60f;
 
         public float Energy => energy;
+
+        public CompExplosive compExplosive => this.GetComp<CompExplosive>();
+
 
         public ShieldState ShieldState
         {
@@ -84,6 +93,10 @@ namespace MGRApparel
         public override void Tick()
         {
             base.Tick();
+            if(energy == EnergyMax)
+            {
+                canFire = true;
+            }
             if (base.Wearer == null)
             {
                 energy = 0f;
@@ -108,7 +121,7 @@ namespace MGRApparel
 
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
-            if (ShieldState != 0)
+            if (ShieldState == ShieldState.Resetting)
             {
                 return false;
             }
@@ -118,16 +131,23 @@ namespace MGRApparel
                 Break();
                 return false;
             }
-            if (!dinfo.Def.isRanged && !dinfo.Def.isExplosive)
-            {
-                return false;
-            }
+
             energy -= dinfo.Amount * EnergyLossPerDamage;
-            if (energy < 0f)
+            energy = Math.Min(Math.Max(energy, 0), this.EnergyMax);
+            if (energy == 0 && canFire)
             {
+                List<Thing> things = new List<Thing>();
+                things.Add(this);
+                things.Add(this.Wearer);
+
+                GenSpawn.Spawn(ThingDefOf.Shell_HighExplosive, this.Wearer.DutyLocation(), dinfo.Instigator.Map);
+
+/*              this.compExplosive.destroyedThroughDetonation = false;
+                this.compExplosive.AddThingsIgnoredByExplosion(things);
+                this.def.destroyable = false;
+                this.compExplosive.StartWick(dinfo.Instigator);*/
                 Break();
-            }
-            else
+            }else if (energy > 0)
             {
                 AbsorbedDamage(dinfo);
             }
@@ -142,7 +162,6 @@ namespace MGRApparel
         private void AbsorbedDamage(DamageInfo dinfo)
         {
 
-
             SoundDefOf.EnergyShield_AbsorbDamage.PlayOneShot(new TargetInfo(base.Wearer.Position, base.Wearer.Map, false));
             this.impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
             Vector3 loc = base.Wearer.TrueCenter() + this.impactAngleVect.RotatedBy(180f) * 0.5f;
@@ -155,7 +174,6 @@ namespace MGRApparel
             }
             this.lastAbsorbDamageTick = Find.TickManager.TicksGame;
             this.KeepDisplaying();
-
 
         }
 
@@ -181,6 +199,7 @@ namespace MGRApparel
             }
             ticksToReset = -1;
             energy = EnergyOnReset;
+            canFire = false;
         }
 
         public override void DrawWornExtras()
