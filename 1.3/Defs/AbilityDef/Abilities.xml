@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
+        <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
+        <defName>Projectile_BaseAbility</defName>
+        <label>my ability projectile</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Stun</damageDef>
+            <damageAmountBase>0</damageAmountBase>
+            <speed>250</speed>
+        </projectile>
+        <preFiringInitialIntensity>0</preFiringInitialIntensity>
+        <preFiringFinalIntensity>20</preFiringFinalIntensity>
+        <postFiringInitialIntensity>20</postFiringInitialIntensity>
+        <postFiringFinalIntensity>0</postFiringFinalIntensity>
+        <preFiringDuration>1</preFiringDuration>
+        <postFiringDuration>90</postFiringDuration>
+        <StartFireChance>0.000</StartFireChance>
+    </ThingDef>
+
+    <AbilityUser.AbilityDef ParentName="BaseAbility">
+        <defName>TrueDamageAbility</defName>
+        <label>True Damage</label>
+		<abilityClass>MGRRimworld.MGRAbilities.TrueDamageAbility</abilityClass>
+        <uiIconPath>UI/sword-slice</uiIconPath>
+        <description>True Damage Slice.</description>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>MGRRimworld.Effect_TrueDamage</verbClass>
+            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <abilityDef>TrueDamageAbility</abilityDef>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <range>6</range>
+            <burstShotCount>1</burstShotCount>
+            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <isPrimary>false</isPrimary>
+			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+        </MainVerb>
+    </AbilityUser.AbilityDef>
+
+	<AbilityUser.AbilityDef ParentName="BaseAbility">
+		<defName>ShieldOverLoad</defName>
+        <label>Shield OverLoad</label>
+		<abilityClass>MGRRimworld.MGRAbilities.ShieldOverLoadAbility</abilityClass>
+        <uiIconPath>UI/crowned-explosion</uiIconPath>
+        <description>Shield OverLoad.</description>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
+            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <abilityDef>ShieldOverLoad</abilityDef>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <range>6</range>
+            <burstShotCount>1</burstShotCount>
+            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <isPrimary>false</isPrimary>
+			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+        </MainVerb>
+    </AbilityUser.AbilityDef>
+	
+</Defs>

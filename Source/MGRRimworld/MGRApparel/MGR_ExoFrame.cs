@@ -1,5 +1,6 @@
 ﻿using MGRApparel.MGRGizmo;
 using MGRRimworld;
+using MGRRimworld.MGRComps;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,6 @@ namespace MGRApparel
         private int KeepDisplayingTicks = 1000;
         private float ApparelScorePerEnergyMax = 0.25f;
 
-        private bool canFire = true;
-
 
 
         //private static readonly Material BubbleMat = MaterialPool.MatFrom("Shields/shield_a", ShaderDatabase.Transparent);
@@ -37,8 +36,6 @@ namespace MGRApparel
         private float EnergyGainPerTick => this.GetStatValue(StatDefOf.EnergyShieldRechargeRate, true) / 60f;
 
         public float Energy => energy;
-
-        public CompExplosive compExplosive => this.GetComp<CompExplosive>();
 
 
         public ShieldState ShieldState
@@ -93,10 +90,6 @@ namespace MGRApparel
         public override void Tick()
         {
             base.Tick();
-            if(energy == EnergyMax)
-            {
-                canFire = true;
-            }
             if (base.Wearer == null)
             {
                 energy = 0f;
@@ -134,18 +127,8 @@ namespace MGRApparel
 
             energy -= dinfo.Amount * EnergyLossPerDamage;
             energy = Math.Min(Math.Max(energy, 0), this.EnergyMax);
-            if (energy == 0 && canFire)
+            if (energy <= 0)
             {
-                List<Thing> things = new List<Thing>();
-                things.Add(this);
-                things.Add(this.Wearer);
-
-                GenSpawn.Spawn(ThingDefOf.Shell_HighExplosive, this.Wearer.DutyLocation(), dinfo.Instigator.Map);
-
-/*              this.compExplosive.destroyedThroughDetonation = false;
-                this.compExplosive.AddThingsIgnoredByExplosion(things);
-                this.def.destroyable = false;
-                this.compExplosive.StartWick(dinfo.Instigator);*/
                 Break();
             }else if (energy > 0)
             {
@@ -199,7 +182,6 @@ namespace MGRApparel
             }
             ticksToReset = -1;
             energy = EnergyOnReset;
-            canFire = false;
         }
 
         public override void DrawWornExtras()

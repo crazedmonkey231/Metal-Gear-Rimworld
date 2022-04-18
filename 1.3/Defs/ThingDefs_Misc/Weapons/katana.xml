@@ -7,7 +7,7 @@
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1,1)</drawSize>			
+            <drawSize>(1,1)</drawSize>
         </graphicData>
         <size>(1,1)</size>
         <techLevel>Spacer</techLevel>
@@ -15,13 +15,13 @@
             <li>SpacerMeleeAdvanced</li>
             <li>LongSword</li>
         </weaponTags>
-		<costList>
-			<Steel>25</Steel>
-			<Plasteel>10</Plasteel>
-			<Gold>10</Gold>
-			<ComponentIndustrial>5</ComponentIndustrial>
-			<ComponentSpacer>3</ComponentSpacer>
-		</costList>
+        <costList>
+            <Steel>25</Steel>
+            <Plasteel>10</Plasteel>
+            <Gold>10</Gold>
+            <ComponentIndustrial>5</ComponentIndustrial>
+            <ComponentSpacer>3</ComponentSpacer>
+        </costList>
         <thingSetMakerTags>
             <li>RewardStandardQualitySuper</li>
         </thingSetMakerTags>
@@ -63,6 +63,62 @@
                 <Crafting>5</Crafting>
             </skillRequirements>
         </recipeMaker>
-
+        <allowedArchonexusCount>1</allowedArchonexusCount>
+    </ThingDef>
+	
+    <ThingDef ParentName="ApparelBase">
+        <defName>MeleeWeapon_MGR_Katana_Sheath</defName>
+        <label>MGR Katana Sheath</label>
+        <description>Sheath for the slicy dicy</description>
+        <techLevel>Industrial</techLevel>
+        <recipeMaker>
+            <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+            <researchPrerequisite>LongBlades</researchPrerequisite>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <useIngredientsForColor>false</useIngredientsForColor>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <skillRequirements>
+                <Crafting>3</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <ComponentIndustrial>1</ComponentIndustrial>
+            <Steel>20</Steel>
+            <Plasteel>40</Plasteel>
+        </costList>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana-sheath</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <size>(1,1)</size>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <WorkToMake>1200</WorkToMake>
+            <Mass>1</Mass>
+            <Flammability>0</Flammability>
+            <EquipDelay>2</EquipDelay>
+        </statBases>
+        <thingCategories>
+            <li>ApparelUtility</li>
+        </thingCategories>
+        <generateAllowChance>0.15</generateAllowChance>
+        <apparel>
+            <countsAsClothingForNudity>false</countsAsClothingForNudity>
+            <careIfWornByCorpse>false</careIfWornByCorpse>
+            <careIfDamaged>false</careIfDamaged>
+            <wearPerDay>0</wearPerDay>
+            <bodyPartGroups>
+                <li>Waist</li>
+            </bodyPartGroups>
+            <layers>
+                <li>Belt</li>
+            </layers>
+        </apparel>
+        <allowedArchonexusCount>1</allowedArchonexusCount>
     </ThingDef>
 </Defs>
