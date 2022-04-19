@@ -7,8 +7,9 @@ namespace MGRRimworld.MGRDefOf
     [DefOf]
     class MGRDefOf
     {
-        public static AbilityUser.AbilityDef ShieldOverLoad;
+
         public static AbilityUser.AbilityDef TrueDamageAbility;
+        public static AbilityUser.AbilityDef ShieldOverLoad;
         public static ThingDef MGR_Mote_BloodSquirt;
         public static ThingDef MGR_Mote_CrossStrike;
         public static ThingDef MGR_Mote_BladeSweep;

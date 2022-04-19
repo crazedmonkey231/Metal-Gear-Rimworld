@@ -21,11 +21,6 @@ namespace MGRRimworld
         private bool arg_42_0;
         private static readonly Material bladeMat = MaterialPool.MatFrom("UI/BloodMist", false);
 
-        public override bool Available()
-        {
-
-            return ((Effect_TrueDamage)this).CasterPawn.equipment.Primary.def == MGRDefOf.MGRDefOf.MeleeWeapon_MGR_Katana;
-        }
         public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo targ)
         {
             this.validTarg = targ.IsValid && targ.CenterVector3.InBounds((((Effect_TrueDamage)this).CasterPawn).Map) && !targ.Cell.Fogged((((Effect_TrueDamage)this).CasterPawn).Map) && targ.Cell.Walkable((((Effect_TrueDamage)this).CasterPawn).Map) && (double)(root - targ.Cell).LengthHorizontal < (double)((Effect_TrueDamage)this).verbProps.range;

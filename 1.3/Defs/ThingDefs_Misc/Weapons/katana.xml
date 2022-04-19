@@ -64,6 +64,13 @@
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+			<li Class="AbilityUser.CompProperties_AbilityItem">
+				<Abilities>
+					<li>TrueDamageAbility</li>
+				</Abilities>
+			</li>
+		</comps>
     </ThingDef>
 	
     <ThingDef ParentName="ApparelBase">

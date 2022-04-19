@@ -7,4 +7,11 @@
         <alwaysShowWeapon>true</alwaysShowWeapon>
         <casualInterruptible>false</casualInterruptible>
     </JobDef>
+    <JobDef>
+        <defName>CastAbilitySelf</defName>
+        <driverClass>AbilityUser.JobDriver_CastAbilitySelf</driverClass>
+        <reportString>Using an ability</reportString>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
 </Defs>

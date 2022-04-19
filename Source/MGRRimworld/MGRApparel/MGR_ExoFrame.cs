@@ -1,5 +1,6 @@
 ﻿using MGRApparel.MGRGizmo;
 using MGRRimworld;
+using MGRRimworld.MGRAbilities;
 using MGRRimworld.MGRComps;
 using RimWorld;
 using System;

@@ -1,4 +1,5 @@
 ﻿using MGRRimworld.MGRDefOf;
+using System;
 using UnityEngine;
 using Verse;
 
@@ -133,6 +134,37 @@ namespace MGRRimworld.MGRMoteMaker
             moteThrown.rotationRate = (float)Rand.Range(-60, 60);
             moteThrown.exactPosition = loc;
             moteThrown.SetVelocity((float)Rand.Range(0, 360), Rand.Range(1f, 2f));
+            GenSpawn.Spawn((Thing)moteThrown, loc.ToIntVec3(), map);
+        }
+
+        public static void MakePowerBeamMote(
+          IntVec3 cell,
+          Map map,
+          float scale,
+          float rot,
+          float duration,
+          float fadeIn,
+          float fadeOut)
+        {
+            Mote mote = (Mote)ThingMaker.MakeThing(MGRDefOf.MGRDefOf.MGR_Mote_BloodSquirt);
+            mote.exactPosition = cell.ToVector3Shifted();
+            mote.Scale = scale;
+            mote.rotationRate = rot;
+            mote.def.mote.solidTime = duration - fadeIn - fadeOut;
+            mote.def.mote.fadeInTime = fadeIn;
+            mote.def.mote.fadeOutTime = fadeOut;
+            GenSpawn.Spawn((Thing)mote, cell, map);
+        }
+
+        public static void ThrowRegenMote(Vector3 loc, Map map, float scale)
+        {
+            if (!loc.ShouldSpawnMotesAt(map) || map.moteCounter.SaturatedLowPriority)
+                return;
+            MoteThrown moteThrown = (MoteThrown)ThingMaker.MakeThing(MGRDefOf.MGRDefOf.MGR_Mote_BloodSquirt);
+            moteThrown.Scale = 1.9f * scale;
+            moteThrown.rotationRate = (float)Rand.Range(-60, 60);
+            moteThrown.exactPosition = loc;
+            moteThrown.SetVelocity((float)Rand.Range(0, 360), Rand.Range(0.2f, 0.3f));
             GenSpawn.Spawn((Thing)moteThrown, loc.ToIntVec3(), map);
         }
     }

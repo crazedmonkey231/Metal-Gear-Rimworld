@@ -7,7 +7,8 @@ namespace MGRRimworld.MGRComps
     {
         public override void CompTick()
         {
-            base.CompTick();
+            if(Initialized)
+                base.CompTick();
         }
 
         public override void PostInitialize()

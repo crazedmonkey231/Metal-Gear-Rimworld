@@ -12,14 +12,15 @@ namespace MGRRimworld.MGRAbilities
     
     class ShieldOverLoadAbility : PawnAbility
     {
+
         public MGRCompAbilityUser AbilityUser => (MGRCompAbilityUser)this.AbilityUser;
+
+
         public ShieldOverLoadAbility() { 
             
         }
         public override bool ShouldShowGizmo()
         {
-            if (this.Pawn.apparel.Wearing(new Thing()))
-                return false;
             return true;
         }
     }

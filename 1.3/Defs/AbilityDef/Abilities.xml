@@ -2,7 +2,7 @@
 <Defs>
 
 
-    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
+    <ThingDef Name="BaseAbilityLaser" ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
         <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
         <defName>Projectile_BaseAbility</defName>
         <label>my ability projectile</label>
@@ -12,9 +12,32 @@
         </graphicData>
         <projectile>
             <flyOverhead>false</flyOverhead>
-            <damageDef>Stun</damageDef>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>100</damageAmountBase>
+            <speed>80</speed>
+        </projectile>
+        <preFiringInitialIntensity>0</preFiringInitialIntensity>
+        <preFiringFinalIntensity>20</preFiringFinalIntensity>
+        <postFiringInitialIntensity>20</postFiringInitialIntensity>
+        <postFiringFinalIntensity>0</postFiringFinalIntensity>
+        <preFiringDuration>1</preFiringDuration>
+        <postFiringDuration>90</postFiringDuration>
+        <StartFireChance>0.000</StartFireChance>
+    </ThingDef>
+	
+    <ThingDef Name="BaseAbilityAOE" ParentName="BaseAbilityLaser" Class="AbilityUser.ProjectileDef_AbilityLaser">
+        <thingClass>MGRRimworld.Projectile_AbilityAOE</thingClass>
+        <defName>Projectile_BaseAOEAbility</defName>
+        <label>my aoe ability projectile</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Bullet</damageDef>
             <damageAmountBase>0</damageAmountBase>
-            <speed>250</speed>
+            <speed>999</speed>
         </projectile>
         <preFiringInitialIntensity>0</preFiringInitialIntensity>
         <preFiringFinalIntensity>20</preFiringFinalIntensity>
@@ -40,8 +63,8 @@
             <hasStandardCommand>true</hasStandardCommand>
             <abilityDef>TrueDamageAbility</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>10.0</SecondsToRecharge>
-            <range>6</range>
+            <SecondsToRecharge>3</SecondsToRecharge>
+            <range>5</range>
             <burstShotCount>1</burstShotCount>
             <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
             <soundCast>MessageBenefit</soundCast>
@@ -55,7 +78,7 @@
 		<defName>ShieldOverLoad</defName>
         <label>Shield OverLoad</label>
 		<abilityClass>MGRRimworld.MGRAbilities.ShieldOverLoadAbility</abilityClass>
-        <uiIconPath>UI/crowned-explosion</uiIconPath>
+        <uiIconPath>UI/explosion</uiIconPath>
         <description>Shield OverLoad.</description>
         <MainVerb Class="AbilityUser.VerbProperties_Ability">
             <verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
@@ -66,15 +89,15 @@
             <hasStandardCommand>true</hasStandardCommand>
             <abilityDef>ShieldOverLoad</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>10.0</SecondsToRecharge>
-            <range>6</range>
+            <SecondsToRecharge>5</SecondsToRecharge>
+            <range>5</range>
             <burstShotCount>1</burstShotCount>
             <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
             <soundCast>MessageBenefit</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
-			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+			<defaultProjectile>Projectile_BaseAOEAbility</defaultProjectile>
         </MainVerb>
     </AbilityUser.AbilityDef>
-	
+  
 </Defs>
