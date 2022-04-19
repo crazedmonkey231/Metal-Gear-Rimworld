@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
     <ThingDef ParentName="UnfinishedBase">
-        <defName>UnfinishedHealthItemMonsoonBionic</defName>
+        <defName>UnfinishedHealthItemMGRBionic</defName>
         <label>unfinished monsoon bionic</label>
         <description>An monsoon unfinished bionic.</description>
         <statBases>

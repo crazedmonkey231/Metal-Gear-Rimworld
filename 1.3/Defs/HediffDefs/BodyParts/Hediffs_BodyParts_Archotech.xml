@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Name="BodyPartMGRBase" ParentName="BodyPartBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <thingCategories>
+            <li>BodyPartsArchotech</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Item/Bionic/Monsoon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+        </graphicData>
+        <tradeTags>
+            <li>Bionic</li>
+        </tradeTags>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+        <statBases>
+            <WorkToMake>26000</WorkToMake>
+            <DeteriorationRate>0</DeteriorationRate>
+        </statBases>
+        <costList>
+            <Steel>50</Steel>
+            <Plasteel>50</Plasteel>
+            <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <unfinishedThingDef>UnfinishedHealthItemMGRBionic</unfinishedThingDef>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+            <researchPrerequisite>Bionics</researchPrerequisite>
+            <recipeUsers>
+                <li>FabricationBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>2</glowRadius>
+                <glowColor>(255,0,0,0)</glowColor>
+            </li>
+        </comps>
+    </ThingDef>
+    <!-- Monsoon arm -->
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>MonsoonArm</defName>
+        <label>monsoon arm</label>
+        <labelNoun>an Monsoon arm</labelNoun>
+        <description>An installed Monsoon arm.</description>
+        <descriptionHyperlinks>
+            <ThingDef>MonsoonArm</ThingDef>
+        </descriptionHyperlinks>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>fist</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>14</power>
+                        <cooldownTime>2</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+        <spawnThingOnRemoved>MonsoonArm</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.50</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+    <ThingDef ParentName="BodyPartMGRBase">
+        <defName>MonsoonArm</defName>
+        <label>monsoon arm</label>
+        <description>An artificial arm built by an Monsoon. It's strong enough to crush a thick hardwood branch in its hand, and precise enough to write a sonnet on a grain of rice. It looks and feels like natural flesh, but it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>InstallMonsoonArm</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2800</MarketValue>
+            <Mass>4</Mass>
+        </statBases>
+        <thingSetMakerTags>
+            <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+    </ThingDef>
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>InstallMonsoonArm</defName>
+        <label>install monsoon arm</label>
+        <description>Install an Monsoon arm.</description>
+        <descriptionHyperlinks>
+            <ThingDef>MonsoonArm</ThingDef>
+            <HediffDef>MonsoonArm</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing Monsoon arm.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MonsoonArm</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MonsoonArm</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>MonsoonArm</addsHediff>
+    </RecipeDef>
+    <!-- Monsoon leg -->
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>MonsoonLeg</defName>
+        <label>monsoon leg</label>
+        <labelNoun>an Monsoon leg</labelNoun>
+        <description>An installed Monsoon leg.</description>
+        <descriptionHyperlinks>
+            <ThingDef>MonsoonLeg</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>MonsoonLeg</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.50</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+    <ThingDef ParentName="BodyPartMGRBase">
+        <defName>MonsoonLeg</defName>
+        <label>monsoon leg</label>
+        <description>An artificial leg built by an Monsoon. It looks and feels like natural flesh, but a pair of these can move the user as fast as a decent car, and it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>InstallMonsoonLeg</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2800</MarketValue>
+            <Mass>7</Mass>
+        </statBases>
+        <thingSetMakerTags>
+            <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+    </ThingDef>
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>InstallMonsoonLeg</defName>
+        <label>install monsoon leg</label>
+        <description>Install an Monsoon leg.</description>
+        <descriptionHyperlinks>
+            <ThingDef>MonsoonLeg</ThingDef>
+            <HediffDef>MonsoonLeg</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing Monsoon leg.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MonsoonLeg</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MonsoonLeg</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Leg</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>MonsoonLeg</addsHediff>
+    </RecipeDef>
+    <!-- NanomachineHeart -->
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>NanomachineHeart</defName>
+        <label>nanomachine heart</label>
+        <labelNoun>a nanomachine heart</labelNoun>
+        <description>An installed nanomachine heart.</description>
+        <descriptionHyperlinks>
+            <ThingDef>NanomachineHeart</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>NanomachineHeart</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.50</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+    <ThingDef ParentName="BodyPartMGRBase">
+        <defName>NanomachineHeart</defName>
+        <label>nanomachine heart</label>
+        <description>An advanced artificial heart. It has synthetic muscle fibers for a realistic heartbeat, plus a high-flow pump for rapid circulation during high stress. It is better than a biological heart in almost every way.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>InstallNanomachineHeart</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Chemfuel>50</Chemfuel>
+            <Neutroamine>50</Neutroamine>
+        </costList>
+    </ThingDef>
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>InstallNanomachineHeart</defName>
+        <label>install nanomachine heart</label>
+        <description>Install a nanomachine heart.</description>
+        <descriptionHyperlinks>
+            <ThingDef>NanomachineHeart</ThingDef>
+            <HediffDef>NanomachineHeart</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing nanomachine heart.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>NanomachineHeart</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>NanomachineHeart</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Heart</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>NanomachineHeart</addsHediff>
+    </RecipeDef>
+</Defs>
