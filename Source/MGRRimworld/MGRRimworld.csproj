@@ -152,7 +152,6 @@
     <Compile Include="MGRMoteMaker\MGR_MoteMaker.cs" />
     <Compile Include="Mod\MGRRimworldMod.cs" />
     <Compile Include="Mod\MGRRimworldSettings.cs" />
-    <Compile Include="Projectile_AbilityAOE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

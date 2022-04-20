@@ -12,32 +12,9 @@
         </graphicData>
         <projectile>
             <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <damageAmountBase>100</damageAmountBase>
-            <speed>80</speed>
-        </projectile>
-        <preFiringInitialIntensity>0</preFiringInitialIntensity>
-        <preFiringFinalIntensity>20</preFiringFinalIntensity>
-        <postFiringInitialIntensity>20</postFiringInitialIntensity>
-        <postFiringFinalIntensity>0</postFiringFinalIntensity>
-        <preFiringDuration>1</preFiringDuration>
-        <postFiringDuration>90</postFiringDuration>
-        <StartFireChance>0.000</StartFireChance>
-    </ThingDef>
-	
-    <ThingDef Name="BaseAbilityAOE" ParentName="BaseAbilityLaser" Class="AbilityUser.ProjectileDef_AbilityLaser">
-        <thingClass>MGRRimworld.Projectile_AbilityAOE</thingClass>
-        <defName>Projectile_BaseAOEAbility</defName>
-        <label>my aoe ability projectile</label>
-        <graphicData>
-            <texPath>Things/Projectile/Bullet_Small</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
+            <damageDef>Stun</damageDef>
             <damageAmountBase>0</damageAmountBase>
-            <speed>999</speed>
+            <speed>80</speed>
         </projectile>
         <preFiringInitialIntensity>0</preFiringInitialIntensity>
         <preFiringFinalIntensity>20</preFiringFinalIntensity>
@@ -90,13 +67,11 @@
             <abilityDef>ShieldOverLoad</abilityDef>
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>5</SecondsToRecharge>
-            <range>5</range>
-            <burstShotCount>1</burstShotCount>
-            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
             <soundCast>MessageBenefit</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
-			<defaultProjectile>Projectile_BaseAOEAbility</defaultProjectile>
+			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+			<AbilityTargetCategory>TargetSelf</AbilityTargetCategory>
         </MainVerb>
     </AbilityUser.AbilityDef>
   

@@ -22,7 +22,7 @@ namespace MGRApparel
         private const float MaxDrawSize = 1.55f;
         private const float MaxDamagedJitterDist = 0.05f;
         private const int JitterDurationTicks = 8;
-        private int StartingTicksToReset = 3200;
+        private int StartingTicksToReset = 500;
         private float EnergyOnReset = 0.2f;
         private float EnergyLossPerDamage = 0.033f;
         private int KeepDisplayingTicks = 1000;
@@ -72,15 +72,16 @@ namespace MGRApparel
 
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
-            if (Find.Selector.SingleSelectedThing != base.Wearer)
+
+            foreach (Gizmo gizmo in this.GetGizmos())
+                yield return gizmo;
+
+            if (Find.Selector.SingleSelectedThing == this.Wearer)
             {
-                yield break;
+
+                yield return (Gizmo)new MGR_Gizmo_ExoFrame() { exoFrame = this };
+
             }
-            yield return (Gizmo)new MGR_Gizmo_ExoFrame
-            {
-                exoFrame = this
-            };
-            ;
         }
 
         public override float GetSpecialApparelScoreOffset()
@@ -91,57 +92,54 @@ namespace MGRApparel
         public override void Tick()
         {
             base.Tick();
-            if (base.Wearer == null)
+            if (this.Wearer == null)
+                this.energy = 0.0f;
+            else if (this.ShieldState == ShieldState.Resetting)
             {
-                energy = 0f;
+                --this.ticksToReset;
+                if (this.ticksToReset > 0)
+                    return;
+                this.Reset();
             }
-            else if (ShieldState == ShieldState.Resetting)
+            else
             {
-                ticksToReset--;
-                if (ticksToReset <= 0)
-                {
-                    Reset();
-                }
-            }
-            else if (ShieldState == ShieldState.Active)
-            {
-                energy += EnergyGainPerTick;
-                if (energy > EnergyMax)
-                {
-                    energy = EnergyMax;
-                }
+                if (this.ShieldState != ShieldState.Active)
+                    return;
+                this.energy += this.EnergyGainPerTick;
+                if ((double)this.energy <= (double)this.EnergyMax)
+                    return;
+                this.energy = this.EnergyMax;
             }
         }
 
+
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
-        {
-            if (ShieldState == ShieldState.Resetting)
             {
+            if (this.ShieldState != ShieldState.Active)
                 return false;
-            }
             if (dinfo.Def == DamageDefOf.EMP)
             {
-                energy = 0f;
-                Break();
+                this.energy = 0.0f;
+                this.Break();
                 return false;
             }
-
-            energy -= dinfo.Amount * EnergyLossPerDamage;
-            energy = Math.Min(Math.Max(energy, 0), this.EnergyMax);
-            if (energy <= 0)
+            this.energy -= dinfo.Amount * this.EnergyLossPerDamage;
+            if ((double)this.energy < 0.0)
             {
-                Break();
-            }else if (energy > 0)
+                this.Break();
+                if (dinfo.Weapon == null || dinfo.Weapon.IsMeleeWeapon)
+                {
+                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.IntendedTarget.Map, 0.5f, DamageDefOf.Bomb, (Thing)null, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
+                }
+            }
+            else
             {
-                AbsorbedDamage(dinfo);
+                this.AbsorbedDamage(dinfo);
             }
             return true;
         }
 
-        public void KeepDisplaying()
-        {
-            lastKeepDisplayTick = Find.TickManager.TicksGame;
-        }
+        public void KeepDisplaying() => this.lastKeepDisplayTick = Find.TickManager.TicksGame;
 
         private void AbsorbedDamage(DamageInfo dinfo)
         {
@@ -170,8 +168,8 @@ namespace MGRApparel
                 Vector3 loc = base.Wearer.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
                 FleckMaker.ThrowDustPuff(loc, base.Wearer.Map, Rand.Range(0.8f, 1.2f));
             }
-            energy = 0f;
-            ticksToReset = StartingTicksToReset;
+            this.energy = 0.0f;
+            this.ticksToReset = this.StartingTicksToReset;
         }
 
         private void Reset()
@@ -181,8 +179,8 @@ namespace MGRApparel
                 SoundDefOf.EnergyShield_Reset.PlayOneShot(new TargetInfo(base.Wearer.Position, base.Wearer.Map, false));
                 FleckMaker.ThrowLightningGlow(base.Wearer.TrueCenter(), base.Wearer.Map, 3f);
             }
-            ticksToReset = -1;
-            energy = EnergyOnReset;
+            this.ticksToReset = -1;
+            this.energy = this.EnergyOnReset;
         }
 
         public override void DrawWornExtras()
@@ -208,9 +206,6 @@ namespace MGRApparel
             }*/
         }
 
-        public override bool AllowVerbCast(Verb verb)
-        {
-            return true;
-        }
+        public override bool AllowVerbCast(Verb verb) => !(verb is Verb_LaunchProjectile);
     }
 }

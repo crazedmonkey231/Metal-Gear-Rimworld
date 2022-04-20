@@ -108,6 +108,7 @@
         <tradeTags>
             <li>ExoticMisc</li>
         </tradeTags>
+		<!--
 		<comps>
 			<li Class="AbilityUser.CompProperties_AbilityItem">
 				<Abilities>
@@ -115,6 +116,7 @@
 				</Abilities>
 			</li>
 		</comps>
+		-->
     </ThingDef>
 
 </Defs>

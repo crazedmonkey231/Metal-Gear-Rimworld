@@ -16,9 +16,6 @@ namespace MGRRimworld
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-
-
-
             base.DoSettingsWindowContents(inRect);
             MGRRimworldMod.settings.Write();
         }
