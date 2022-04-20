@@ -156,9 +156,10 @@ namespace MGRRimworld
         public void damageEntities(Pawn victim, BodyPartRecord hitPart, int amt, DamageDef type)
         {
             amt = (int)((double)amt * (double)Rand.Range(0.5f, 1.5f));
-            DamageInfo dinfo = new DamageInfo(type, (float)amt, this.dmgNum,instigator: ((Thing)((Effect_TrueDamage)this).CasterPawn), hitPart: hitPart);
+            DamageInfo dinfo = new DamageInfo(type, (float)amt, this.dmgNum, instigator: ((Thing)((Effect_TrueDamage)this).CasterPawn), hitPart: hitPart);
             dinfo.SetAllowDamagePropagation(false);
-            victim.TakeDamage(dinfo);
+            try { victim.TakeDamage(dinfo); }
+            finally { }
         }
 
     }
