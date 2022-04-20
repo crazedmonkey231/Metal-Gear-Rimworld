@@ -13,7 +13,7 @@ namespace MGRRimworld
     class Effect_TrueDamage : Verb_UseAbility
     {
 
-        private int verVal = 0;
+        private int verVal = 5;
         private int dmgNum = 100;
         private bool validTarg;
         private IntVec3 arg_29_0;
@@ -72,9 +72,9 @@ namespace MGRRimworld
                             try
                             {
                                 ThingSelectionUtility.SelectNextColonist();
-                                ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.Vanish);
+                                ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.WillReplace);
                                 this.SearchForTargets(this.arg_29_0, 2f + 0.5f * (float)this.verVal, map, casterPawn);
-                                GenSpawn.Spawn((Thing)casterPawn, ((Effect_TrueDamage)this).currentTarget.Cell, map);
+                                GenSpawn.Spawn(casterPawn, this.currentTarget.Cell, map);
                                 this.DrawBlade(casterPawn.Position.ToVector3Shifted(), 4f + (float)this.verVal);
                                 casterPawn.drafter.Drafted = drafted;
                                 CameraJumper.TryJumpAndSelect((GlobalTargetInfo)(Thing)casterPawn);
@@ -92,6 +92,11 @@ namespace MGRRimworld
                         }
                         else
                         {
+                            IntVec3 location = new IntVec3(1, 1, 1);
+
+                            location = location + ((Effect_TrueDamage)this).currentTarget.Pawn.Position - ((Effect_TrueDamage)this).CurrentDestination.Pawn.Position;
+
+
                             ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.Vanish);
                             this.SearchForTargets(this.arg_29_0, 2f + 0.5f * (float)this.verVal, map, casterPawn);
                             GenSpawn.Spawn((Thing)casterPawn, ((Effect_TrueDamage)this).currentTarget.Cell, map);
@@ -127,7 +132,8 @@ namespace MGRRimworld
                         MoteMaker.ThrowText(victim.DrawPos, victim.Map, "Critical Hit");
                     }
                     this.DrawStrike(center, victim.Position.ToVector3(), map);
-                    this.damageEntities(victim, (BodyPartRecord)null, this.dmgNum, DamageDefOf.Cut);
+                    Log.Message("searching for targets to damage");
+                    this.damageEntities(pawn, victim, (BodyPartRecord)null, this.dmgNum, DamageDefOf.Cut);
                 }
                 source.GetEnumerator().MoveNext();
             }
@@ -153,13 +159,14 @@ namespace MGRRimworld
             }
         }
 
-        public void damageEntities(Pawn victim, BodyPartRecord hitPart, int amt, DamageDef type)
+        public void damageEntities(Pawn instigatorPawn, Pawn victim, BodyPartRecord hitPart, int amt, DamageDef type)
         {
-            amt = (int)((double)amt * (double)Rand.Range(0.5f, 1.5f));
-            DamageInfo dinfo = new DamageInfo(type, (float)amt, this.dmgNum, instigator: ((Thing)((Effect_TrueDamage)this).CasterPawn), hitPart: hitPart);
+
+            amt = (int)((double)amt * (double)Rand.Range(1f, 3f));
+            DamageInfo dinfo = new DamageInfo(type, (float)amt, this.dmgNum, instigator: instigatorPawn, hitPart: hitPart);
             dinfo.SetAllowDamagePropagation(false);
             try { victim.TakeDamage(dinfo); }
-            finally { }
+            catch { }
         }
 
     }

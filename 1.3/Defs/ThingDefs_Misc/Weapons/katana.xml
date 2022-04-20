@@ -58,9 +58,18 @@
             </li>
         </tools>
         <recipeMaker>
+            <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
             <researchPrerequisite>LongBlades</researchPrerequisite>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <useIngredientsForColor>false</useIngredientsForColor>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
             <skillRequirements>
-                <Crafting>5</Crafting>
+                <Crafting>10</Crafting>
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
@@ -90,7 +99,7 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <skillRequirements>
-                <Crafting>3</Crafting>
+                <Crafting>10</Crafting>
             </skillRequirements>
         </recipeMaker>
         <costList>

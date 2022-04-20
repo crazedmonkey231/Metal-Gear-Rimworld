@@ -42,8 +42,6 @@
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>3</SecondsToRecharge>
             <range>5</range>
-            <burstShotCount>1</burstShotCount>
-            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
             <soundCast>MessageBenefit</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>

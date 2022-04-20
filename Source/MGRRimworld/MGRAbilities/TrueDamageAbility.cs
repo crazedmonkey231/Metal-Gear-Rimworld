@@ -9,18 +9,22 @@ using Verse;
 
 namespace MGRRimworld.MGRAbilities
 {
-    
+    [StaticConstructorOnStartup]
     class TrueDamageAbility : PawnAbility
     {
+        private bool showGizmo = true;
+
         public MGRCompAbilityUser AbilityUser => (MGRCompAbilityUser)this.AbilityUser;
+
         public TrueDamageAbility() { 
             
         }
+
         public override bool ShouldShowGizmo()
         {
-            if (this.Pawn.equipment.Primary == null)
-                return false;
-            return this.Pawn.equipment.Primary.def.defName.Equals("MeleeWeapon_MGR_Katana");
+
+            return showGizmo;
+
         }
     }
 }

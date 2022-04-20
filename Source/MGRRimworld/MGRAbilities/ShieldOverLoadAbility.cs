@@ -19,9 +19,12 @@ namespace MGRRimworld.MGRAbilities
         public ShieldOverLoadAbility() { 
             
         }
+
         public override bool ShouldShowGizmo()
         {
+
             return true;
+
         }
     }
 }
