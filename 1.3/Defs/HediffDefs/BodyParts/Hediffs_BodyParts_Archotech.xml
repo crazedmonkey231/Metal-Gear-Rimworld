@@ -46,6 +46,7 @@
             </li>
         </comps>
     </ThingDef>
+	
     <!-- Monsoon arm -->
     <HediffDef ParentName="AddedBodyPartBase">
         <defName>MonsoonArm</defName>
@@ -122,6 +123,18 @@
         </appliedOnFixedBodyParts>
         <addsHediff>MonsoonArm</addsHediff>
     </RecipeDef>
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>RemoveMonsoonArm</defName>
+		<label>remove monsoon arm</label>
+		<description>Remove monsoon arm.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>MonsoonArm</ThingDef>
+		  <HediffDef>MonsoonArm</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing monsoon arm.</jobString>
+		<removesHediff>MonsoonArm</removesHediff>
+	</RecipeDef>
+	
     <!-- Monsoon leg -->
     <HediffDef ParentName="AddedBodyPartBase">
         <defName>MonsoonLeg</defName>
@@ -182,16 +195,58 @@
         </appliedOnFixedBodyParts>
         <addsHediff>MonsoonLeg</addsHediff>
     </RecipeDef>
-    <!-- NanomachineHeart -->
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>RemoveMonsoonLeg</defName>
+		<label>remove monsoon leg</label>
+		<description>Remove monsoon leg.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>MonsoonLeg</ThingDef>
+		  <HediffDef>MonsoonLeg</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing monsoon leg.</jobString>
+		<removesHediff>MonsoonLeg</removesHediff>
+	</RecipeDef>
+	
+    <!-- NanomachineCore -->
+	<AbilityDef Name="NanomachineCoreUnleashedBase">
+		<defName>NanomachineCoreUnleashed</defName>
+		<label>Nano\nMachines\nUnleashed</label>
+		<description>Unleash the full power of the nanomachine core.</description>
+		<targetRequired>False</targetRequired>
+		<gizmoClass>Command_Ability</gizmoClass>
+		<iconPath>UI/explosion</iconPath>
+		<verbProperties>
+		  <verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
+		  <range>-1</range>
+		  <warmupTime>2</warmupTime>
+		  <defaultCooldownTime>5</defaultCooldownTime>
+		</verbProperties>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+			<comps>
+			  <li Class="CompProperties_AbilityRequiresCapacity">
+				<capacity>Talking</capacity>
+			  </li>
+			</comps>
+	</AbilityDef>
     <HediffDef ParentName="AddedBodyPartBase">
-        <defName>NanomachineHeart</defName>
-        <label>nanomachine heart</label>
-        <labelNoun>a nanomachine heart</labelNoun>
-        <description>An installed nanomachine heart.</description>
+        <defName>NanomachineCore</defName>
+		<hediffClass>MGRRimworld.MGRHediffs.Hediff_NanomachineCore</hediffClass>
+        <label>nanomachine core</label>
+        <labelNoun>a nanomachine core</labelNoun>
+        <description>An installed nanomachine core.</description>
         <descriptionHyperlinks>
-            <ThingDef>NanomachineHeart</ThingDef>
+            <ThingDef>NanomachineCore</ThingDef>
         </descriptionHyperlinks>
-        <spawnThingOnRemoved>NanomachineHeart</spawnThingOnRemoved>
+        <spawnThingOnRemoved>NanomachineCore</spawnThingOnRemoved>
+		<initialSeverity>1</initialSeverity>
+		<isBad>false</isBad>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <ImmunityGainSpeed>0.08</ImmunityGainSpeed>
+			</statOffsets>
+		  </li>
+		</stages>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1.50</partEfficiency>
@@ -199,11 +254,11 @@
         </addedPartProps>
     </HediffDef>
     <ThingDef ParentName="BodyPartMGRBase">
-        <defName>NanomachineHeart</defName>
-        <label>nanomachine heart</label>
-        <description>An advanced artificial heart. It has synthetic muscle fibers for a realistic heartbeat, plus a high-flow pump for rapid circulation during high stress. It is better than a biological heart in almost every way.</description>
+        <defName>NanomachineCore</defName>
+        <label>nanomachine core</label>
+        <description>An advanced artificial core. It has synthetic muscle fibers for a realistic corebeat, plus a high-flow pump for rapid circulation during high stress. It is better than a biological core in almost every way.</description>
         <descriptionHyperlinks>
-            <RecipeDef>InstallNanomachineHeart</RecipeDef>
+            <RecipeDef>InstallNanomachineCore</RecipeDef>
         </descriptionHyperlinks>
         <costList>
             <Chemfuel>50</Chemfuel>
@@ -211,19 +266,19 @@
         </costList>
     </ThingDef>
     <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
-        <defName>InstallNanomachineHeart</defName>
-        <label>install nanomachine heart</label>
-        <description>Install a nanomachine heart.</description>
+        <defName>InstallNanomachineCore</defName>
+        <label>install nanomachine core</label>
+        <description>Install a nanomachine core.</description>
         <descriptionHyperlinks>
-            <ThingDef>NanomachineHeart</ThingDef>
-            <HediffDef>NanomachineHeart</HediffDef>
+            <ThingDef>NanomachineCore</ThingDef>
+            <HediffDef>NanomachineCore</HediffDef>
         </descriptionHyperlinks>
-        <jobString>Installing nanomachine heart.</jobString>
+        <jobString>Installing nanomachine core.</jobString>
         <ingredients>
             <li>
                 <filter>
                     <thingDefs>
-                        <li>NanomachineHeart</li>
+                        <li>NanomachineCore</li>
                     </thingDefs>
                 </filter>
                 <count>1</count>
@@ -231,12 +286,23 @@
         </ingredients>
         <fixedIngredientFilter>
             <thingDefs>
-                <li>NanomachineHeart</li>
+                <li>NanomachineCore</li>
             </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
             <li>Heart</li>
         </appliedOnFixedBodyParts>
-        <addsHediff>NanomachineHeart</addsHediff>
+        <addsHediff>NanomachineCore</addsHediff>
     </RecipeDef>
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>RemoveNanomachineCore</defName>
+		<label>remove nanomachine core</label>
+		<description>Remove nanomachine core.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>NanomachineCore</ThingDef>
+		  <HediffDef>NanomachineCore</HediffDef>
+		</descriptionHyperlinks>
+		<jobString>Removing nanomachine core.</jobString>
+		<removesHediff>NanomachineCore</removesHediff>
+	</RecipeDef>
 </Defs>

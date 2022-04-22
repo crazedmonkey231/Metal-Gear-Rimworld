@@ -17,7 +17,7 @@ namespace MGRRimworld.MGRComps
 
             // add Abilities
             this.AddPawnAbility(MGRDefOf.MGRDefOf.TrueDamageAbility);
-            this.AddPawnAbility(MGRDefOf.MGRDefOf.ShieldOverLoad);
+            //this.AddPawnAbility(MGRDefOf.MGRDefOf.ShieldOverLoad);
         }
 
         public override bool TryTransformPawn()
