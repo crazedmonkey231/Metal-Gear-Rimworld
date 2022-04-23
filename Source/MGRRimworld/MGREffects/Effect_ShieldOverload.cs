@@ -1,9 +1,5 @@
 ﻿using AbilityUser;
-using MGRRimworld.MGRMoteMaker;
 using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
-using System.Linq;
 using Verse;
 
 namespace MGRRimworld
@@ -27,17 +23,20 @@ namespace MGRRimworld
         protected override bool TryCastShot()
         {
 
-            Pawn casterPawn = ((Effect_ShieldOverload)this).CasterPawn;
-            Map map = ((Effect_ShieldOverload)this).CasterPawn.Map;
-            IntVec3 position = ((Effect_ShieldOverload)this).CasterPawn.Position;
-            bool drafted = casterPawn.Drafted;
+            Pawn casterPawn = this.CasterPawn;
+            Map map = this.CasterPawn.Map;
             if (casterPawn.IsColonist)
             {
 
-                GenExplosion.DoExplosion(position, map, 54.0f, DamageDefOf.Bomb, (Thing)null, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
+                if (map.GameConditionManager.GetActiveCondition(GameConditionDefOf.SolarFlare) == null)
+                {
 
-                DamageInfo dinfo = new DamageInfo();
+                    map.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(GameConditionDefOf.SolarFlare, duration: 3000));
+
+                }
+
                 casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCore).PostAdd(null);
+
                 return true;
 
             }
