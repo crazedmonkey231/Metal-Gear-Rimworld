@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BaseBear">
+    <defName>Joris_The_Ripper</defName>
+    <label>Joris The Ripper</label>
+    <description>Possessing incredible superbear strenght, speen and endurance. Joris the Ripper is nigh indestructible due to the parts of his body made entirely out of plasteel and nanites laced muscles. He's often seen with a sword...\nBut not on his.</description>
+    <statBases>
+      <MoveSpeed>7.0</MoveSpeed>
+      <ComfyTemperatureMin>-400</ComfyTemperatureMin>
+	  <ComfyTemperatureMax>400</ComfyTemperatureMax>
+      <MarketValue>700</MarketValue>
+      <FilthRate>4</FilthRate>
+		<ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+		<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+		<ArmorRating_Heat>1</ArmorRating_Heat>
+    </statBases>
+	<race>
+      <wildness>0.95</wildness>
+      <meatLabel>bear meat</meatLabel>
+    </race>
+    <tools>
+      <li>
+        <label>right claw</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>50</power>
+        <cooldownTime>0.5</cooldownTime>
+        <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>30</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BearBase">
+    <defName>Joris_The_Ripper</defName>
+    <label>Joris The Ripper</label>
+    <race>Joris_The_Ripper</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>1.4</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.3, 0.3)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>1.4</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>2</drawSize>
+          <shadowData>
+            <volume>(0.6, 0.45, 0.45)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>2.7</drawSize>
+          <shadowData>
+            <volume>(0.8, 0.6, 0.6)</volume>
+            <offset>(0,0,-0.3)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/JTR</texPath>
+          <drawSize>2.7</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  
+</Defs>
