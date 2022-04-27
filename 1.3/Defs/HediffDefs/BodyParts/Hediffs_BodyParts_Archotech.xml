@@ -215,19 +215,36 @@
 		<targetRequired>False</targetRequired>
 		<gizmoClass>Command_Ability</gizmoClass>
 		<iconPath>UI/explosion</iconPath>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
 		<verbProperties>
-		  <verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
-		  <range>-1</range>
-		  <warmupTime>2</warmupTime>
-		  <defaultCooldownTime>5</defaultCooldownTime>
+			<verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
+			<range>-1</range>
+			<warmupTime>2</warmupTime>
+			<defaultCooldownTime>5</defaultCooldownTime>
 		</verbProperties>
 		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
-			<comps>
-			  <li Class="CompProperties_AbilityRequiresCapacity">
-				<capacity>Talking</capacity>
-			  </li>
-			</comps>
+		<comps>
+		  <li Class="CompProperties_AbilityRequiresCapacity">
+			<capacity>Talking</capacity>
+		  </li>
+		</comps>
 	</AbilityDef>
+	
+	<HediffDef ParentName="AddedBodyPartBase">
+        <defName>NanomachineCorePower</defName>
+		<hediffClass>MGRRimworld.MGRHediffs.Hediff_NanomachinePower</hediffClass>
+		<label>Power of the nanomachine core</label>
+		<description>Nanomachine core power</description>
+		<initialSeverity>1</initialSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000</disappearsAfterTicks> <!-- 1 days -->
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+    </HediffDef>
+	
     <HediffDef ParentName="AddedBodyPartBase">
         <defName>NanomachineCore</defName>
 		<hediffClass>MGRRimworld.MGRHediffs.Hediff_NanomachineCore</hediffClass>
@@ -243,7 +260,7 @@
 		<stages>
 		  <li>
 			<statOffsets>
-			  <ImmunityGainSpeed>0.08</ImmunityGainSpeed>
+			  <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
 			</statOffsets>
 		  </li>
 		</stages>
@@ -252,7 +269,13 @@
             <partEfficiency>1.50</partEfficiency>
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDef>NanomachineCoreUnleashed</abilityDef>
+			</li>
+		</comps>
     </HediffDef>
+	
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>NanomachineCore</defName>
         <label>nanomachine core</label>
@@ -265,6 +288,7 @@
             <Neutroamine>50</Neutroamine>
         </costList>
     </ThingDef>
+	
     <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
         <defName>InstallNanomachineCore</defName>
         <label>install nanomachine core</label>
@@ -294,6 +318,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>NanomachineCore</addsHediff>
     </RecipeDef>
+	
 	<RecipeDef ParentName="SurgeryRemoveImplantBase">
 		<defName>RemoveNanomachineCore</defName>
 		<label>remove nanomachine core</label>

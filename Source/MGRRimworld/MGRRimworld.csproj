@@ -149,6 +149,7 @@
     <Compile Include="MGRApparel\MGR_ExoFrame.cs" />
     <Compile Include="MGRComps\MGRCompAbilityUser.cs" />
     <Compile Include="MGRDefOf\MGRDefOf.cs" />
+    <Compile Include="MGRHediffs\Hediff_NanomachinePower.cs" />
     <Compile Include="MGRHediffs\Hediff_NanomachineCore.cs" />
     <Compile Include="MGRMoteMaker\MGR_MoteMaker.cs" />
     <Compile Include="Mod\MGRRimworldMod.cs" />

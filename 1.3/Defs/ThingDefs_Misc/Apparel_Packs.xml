@@ -108,15 +108,11 @@
         <tradeTags>
             <li>ExoticMisc</li>
         </tradeTags>
-		<!--
 		<comps>
-			<li Class="AbilityUser.CompProperties_AbilityItem">
-				<Abilities>
-					<li>ShieldOverLoad</li>
-				</Abilities>
-			</li>
+			<li>
+                <compClass>CompEquippable</compClass>
+            </li>
 		</comps>
-		-->
     </ThingDef>
 
 </Defs>

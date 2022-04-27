@@ -211,6 +211,6 @@ namespace MGRApparel
             }*/
         }
 
-        public override bool AllowVerbCast(Verb verb) => !(verb is Verb_LaunchProjectile);
+        public override bool AllowVerbCast(Verb verb) => true;
     }
 }
