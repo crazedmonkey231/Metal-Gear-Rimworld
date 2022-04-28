@@ -16,6 +16,10 @@ namespace MGRRimworld.MGRHediffs
         {
 
             base.ExposeData();
+            if (Scribe.mode != LoadSaveMode.PostLoadInit || this.Part != null)
+                return;
+            Log.Error(this.GetType().Name + " has null part after loading.");
+            this.pawn.health.hediffSet.hediffs.Remove((Hediff)this);
 
         }
 
@@ -36,6 +40,7 @@ namespace MGRRimworld.MGRHediffs
                 float pwrAbsorbed = ((DamageInfo)dinfo).Amount;
                 Log.Message("Power Absorbed from all power grids: " + pwrAbsorbed);
                 Log.Message("Added Power");
+                this.Severity += pwrAbsorbed;
 
             }
 
