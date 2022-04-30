@@ -9,16 +9,13 @@ using Verse;
 
 namespace MGRRimworld.MGRAbilities
 {
-    [StaticConstructorOnStartup]
     class TrueDamageAbility : PawnAbility
     {
         private bool showGizmo = true;
 
         public MGRCompAbilityUser AbilityUser => (MGRCompAbilityUser)this.AbilityUser;
 
-        public TrueDamageAbility() { 
-            
-        }
+        public TrueDamageAbility() { }
 
         public override bool ShouldShowGizmo()
         {

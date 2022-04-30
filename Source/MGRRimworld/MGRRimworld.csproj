@@ -141,8 +141,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MGRAbilities\ShieldOverLoadAbility.cs" />
-    <Compile Include="MGREffects\Effect_ShieldOverload.cs" />
+    <Compile Include="MGRAbilities\NanomachineCoreAbility.cs" />
+    <Compile Include="MGREffects\Effect_NanomachineCore.cs" />
     <Compile Include="MGREffects\Effect_TrueDamage.cs" />
     <Compile Include="MGRAbilities\TrueDamageAbility.cs" />
     <Compile Include="MGRGizmo\MGR_Gizmo_ExoFrame.cs" />

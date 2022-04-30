@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MGR_RaidenSword</defName>
         <label>MGR Raiden Sword</label>
         <description>Hehe slicy dicy</description>
@@ -13,7 +13,6 @@
         <techLevel>Spacer</techLevel>
         <weaponTags>
             <li>SpacerMeleeAdvanced</li>
-            <li>LongSword</li>
         </weaponTags>
         <costList>
             <Steel>50</Steel>
@@ -37,7 +36,7 @@
                     <li>Blunt</li>
                 </capacities>
                 <power>15</power>
-                <cooldownTime>1</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
             <li>
                 <label>point</label>
@@ -45,7 +44,7 @@
                     <li>Stab</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>1.6</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
             <li>
                 <label>edge</label>
@@ -53,14 +52,14 @@
                     <li>Cut</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>1.6</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
         </tools>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
-            <researchPrerequisite>LongBlades</researchPrerequisite>
+            <researchPrerequisite>BigSteel</researchPrerequisite>
             <recipeUsers>
-                <li>TableMachining</li>
+                <li>FabricationBench</li>
             </recipeUsers>
             <useIngredientsForColor>false</useIngredientsForColor>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -72,6 +71,11 @@
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+			<li>
+                <compClass>CompEquippable</compClass>
+            </li>
+		</comps>
     </ThingDef>
 
 </Defs>

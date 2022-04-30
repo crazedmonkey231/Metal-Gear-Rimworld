@@ -8,7 +8,7 @@ namespace MGRRimworld.MGRDefOf
     {
 
         public static AbilityUser.AbilityDef TrueDamageAbility;
-        public static AbilityUser.AbilityDef ShieldOverLoad;
+        public static AbilityUser.AbilityDef NanomachineCoreAbility;
 
         public static AbilityDef NanomachineCoreUnleashed;
 

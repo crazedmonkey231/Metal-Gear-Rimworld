@@ -34,7 +34,7 @@
             <skillRequirements>
                 <Crafting>12</Crafting>
             </skillRequirements>
-            <researchPrerequisite>Bionics</researchPrerequisite>
+            <researchPrerequisite>CyborgNinja</researchPrerequisite>
             <recipeUsers>
                 <li>FabricationBench</li>
             </recipeUsers>
@@ -64,8 +64,8 @@
                         <capacities>
                             <li>Blunt</li>
                         </capacities>
-                        <power>14</power>
-                        <cooldownTime>2</cooldownTime>
+                        <power>35</power>
+                        <cooldownTime>0.75</cooldownTime>
                         <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
                         <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
                     </li>
@@ -75,14 +75,14 @@
         <spawnThingOnRemoved>MonsoonArm</spawnThingOnRemoved>
         <addedPartProps>
             <solid>true</solid>
-            <partEfficiency>1.50</partEfficiency>
+            <partEfficiency>1.80</partEfficiency>
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
     </HediffDef>
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>MonsoonArm</defName>
         <label>monsoon arm</label>
-        <description>An artificial arm built by an Monsoon. It's strong enough to crush a thick hardwood branch in its hand, and precise enough to write a sonnet on a grain of rice. It looks and feels like natural flesh, but it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
+        <description>It's strong enough to crush a thick hardwood branch in its hand, and precise enough to write a sonnet on a grain of rice. It looks and feels like natural flesh, but it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
         <descriptionHyperlinks>
             <RecipeDef>InstallMonsoonArm</RecipeDef>
         </descriptionHyperlinks>
@@ -144,17 +144,33 @@
         <descriptionHyperlinks>
             <ThingDef>MonsoonLeg</ThingDef>
         </descriptionHyperlinks>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>leg</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>15</power>
+                        <cooldownTime>0.8</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+        </comps>
         <spawnThingOnRemoved>MonsoonLeg</spawnThingOnRemoved>
         <addedPartProps>
             <solid>true</solid>
-            <partEfficiency>1.50</partEfficiency>
+            <partEfficiency>1.80</partEfficiency>
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
     </HediffDef>
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>MonsoonLeg</defName>
         <label>monsoon leg</label>
-        <description>An artificial leg built by an Monsoon. It looks and feels like natural flesh, but a pair of these can move the user as fast as a decent car, and it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
+        <description>It looks and feels like natural flesh, but a pair of these can move the user as fast as a decent car, and it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
         <descriptionHyperlinks>
             <RecipeDef>InstallMonsoonLeg</RecipeDef>
         </descriptionHyperlinks>
@@ -217,7 +233,7 @@
 		<iconPath>UI/explosion</iconPath>
 		<stunTargetWhileCasting>True</stunTargetWhileCasting>
 		<verbProperties>
-			<verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
+			<verbClass>MGRRimworld.Effect_NanomachineCore</verbClass>
 			<range>-1</range>
 			<warmupTime>2</warmupTime>
 			<defaultCooldownTime>5</defaultCooldownTime>
@@ -251,7 +267,7 @@
 		</stages>
         <addedPartProps>
             <solid>true</solid>
-            <partEfficiency>1.50</partEfficiency>
+            <partEfficiency>1.80</partEfficiency>
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
 		<comps>

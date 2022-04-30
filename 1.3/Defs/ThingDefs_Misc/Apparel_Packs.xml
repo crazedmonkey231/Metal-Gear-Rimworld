@@ -4,11 +4,11 @@
         <defName>MGR_Apparel_Exoframe</defName>
         <label>mgr exoskeleton frame</label>
         <thingClass>MGRApparel.MGR_ExoFrame</thingClass>
-        <description>***DESCRIPTION***</description>
+        <description>Combining a Vehicle-Mounted Active Denial System with the portability of an Exo suit. The D.E.S. can provide the user with impressive resistance against small to medium calibers. Additionally, the D.E.S. uses reactive armor technology that detonates with an explosion similar to an I.E.D. upon broken with a melee weapon.</description>
         <techLevel>Industrial</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
-            <researchPrerequisite>Fabrication</researchPrerequisite>
+            <researchPrerequisite>BigSteel</researchPrerequisite>
             <recipeUsers>
                 <li>FabricationBench</li>
             </recipeUsers>
@@ -108,11 +108,6 @@
         <tradeTags>
             <li>ExoticMisc</li>
         </tradeTags>
-		<comps>
-			<li>
-                <compClass>CompEquippable</compClass>
-            </li>
-		</comps>
     </ThingDef>
 
 </Defs>

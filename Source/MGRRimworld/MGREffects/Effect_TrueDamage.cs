@@ -16,9 +16,9 @@ namespace MGRRimworld
         private int verVal = 5;
         private int dmgNum = 100;
         private bool validTarg;
-        private IntVec3 arg_29_0;
-        private bool arg_41_0;
-        private bool arg_42_0;
+        private IntVec3 center;
+        private bool isInBounds;
+        private bool flag1;
         private static readonly Material bladeMat = MaterialPool.MatFrom("UI/BloodMist", false);
 
         public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo targ)
@@ -48,17 +48,17 @@ namespace MGRRimworld
                 if (((Effect_TrueDamage)this).currentTarget != (LocalTargetInfo)(Thing)null && (((Effect_TrueDamage)this).CasterPawn) != null)
                 {
 
-                    this.arg_29_0 = ((Effect_TrueDamage)this).currentTarget.Cell;
+                    this.center = ((Effect_TrueDamage)this).currentTarget.Cell;
                     Vector3 centerVector3 = ((Effect_TrueDamage)this).currentTarget.CenterVector3;
                     flag2 = ((Effect_TrueDamage)this).currentTarget.Cell.IsValid;
-                    this.arg_41_0 = centerVector3.InBounds((((Effect_TrueDamage)this).CasterPawn).Map);
-                    this.arg_42_0 = true;
+                    this.isInBounds = centerVector3.InBounds((((Effect_TrueDamage)this).CasterPawn).Map);
+                    this.flag1 = true;
                 }
                 else
                     flag2 = false;
                 bool flag3 = flag2;
-                bool flag4 = this.arg_41_0;
-                bool flag5 = this.arg_42_0;
+                bool flag4 = this.isInBounds;
+                bool flag5 = this.flag1;
                 if (flag3)
                 {
                     if (flag4 & flag5)
@@ -73,7 +73,7 @@ namespace MGRRimworld
                             {
                                 ThingSelectionUtility.SelectNextColonist();
                                 ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.WillReplace);
-                                this.SearchForTargets(this.arg_29_0, 2f + 0.5f * (float)this.verVal, map, casterPawn);
+                                this.SearchForTargets(this.center, 2f + 0.5f * (float)this.verVal, map, casterPawn);
                                 GenSpawn.Spawn(casterPawn, this.currentTarget.Cell, map);
                                 this.DrawBlade(casterPawn.Position.ToVector3Shifted(), 4f + (float)this.verVal);
                                 casterPawn.drafter.Drafted = drafted;
@@ -98,7 +98,7 @@ namespace MGRRimworld
 
 
                             ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.Vanish);
-                            this.SearchForTargets(this.arg_29_0, 2f + 0.5f * (float)this.verVal, map, casterPawn);
+                            this.SearchForTargets(this.center, 2f + 0.5f * (float)this.verVal, map, casterPawn);
                             GenSpawn.Spawn((Thing)casterPawn, ((Effect_TrueDamage)this).currentTarget.Cell, map);
                             this.DrawBlade(casterPawn.Position.ToVector3Shifted(), 4f + (float)this.verVal);
                         }
@@ -126,7 +126,7 @@ namespace MGRRimworld
                     victim = intVec3.GetFirstPawn(map);
                 if (victim != null )//&& victim.Faction != pawn.Faction)
                 {
-                    if (Rand.Chance((float)(0.100000001490116 + 0.150000005960464 * pawn.skills.GetSkill(SkillDefOf.Melee).levelInt)))
+                    if (Rand.Chance((float)(0.05 + 0.15 * pawn.skills.GetSkill(SkillDefOf.Melee).levelInt)/2))
                     {
                         this.dmgNum *= 10;
                         MoteMaker.ThrowText(victim.DrawPos, victim.Map, "Critical Hit");

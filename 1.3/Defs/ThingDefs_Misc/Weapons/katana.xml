@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MeleeWeapon_MGR_Katana</defName>
         <label>MGR Katana</label>
-        <description>Hehe slicy dicy</description>
+        <description>MGR Katana</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -13,7 +13,6 @@
         <techLevel>Spacer</techLevel>
         <weaponTags>
             <li>SpacerMeleeAdvanced</li>
-            <li>LongSword</li>
         </weaponTags>
         <costList>
             <Steel>25</Steel>
@@ -30,7 +29,7 @@
             <Mass>1.5</Mass>
         </statBases>
         <relicChance>2</relicChance>
-        <equippedAngleOffset>0</equippedAngleOffset>
+        <equippedAngleOffset>-40</equippedAngleOffset>
         <tools>
             <li>
                 <label>handle</label>
@@ -38,7 +37,7 @@
                     <li>Blunt</li>
                 </capacities>
                 <power>15</power>
-                <cooldownTime>1</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
             <li>
                 <label>point</label>
@@ -46,7 +45,7 @@
                     <li>Stab</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>1.6</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
             <li>
                 <label>edge</label>
@@ -54,14 +53,14 @@
                     <li>Cut</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>1.6</cooldownTime>
+                <cooldownTime>0.75</cooldownTime>
             </li>
         </tools>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
-            <researchPrerequisite>LongBlades</researchPrerequisite>
+            <researchPrerequisite>BigSteel</researchPrerequisite>
             <recipeUsers>
-                <li>TableMachining</li>
+                <li>FabricationBench</li>
             </recipeUsers>
             <useIngredientsForColor>false</useIngredientsForColor>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -85,13 +84,13 @@
     <ThingDef ParentName="ApparelBase">
         <defName>MeleeWeapon_MGR_Katana_Sheath</defName>
         <label>MGR Katana Sheath</label>
-        <description>Sheath for the slicy dicy</description>
+        <description>MGR Katana Sheath</description>
         <techLevel>Industrial</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
-            <researchPrerequisite>LongBlades</researchPrerequisite>
+            <researchPrerequisite>BigSteel</researchPrerequisite>
             <recipeUsers>
-                <li>TableMachining</li>
+                <li>FabricationBench</li>
             </recipeUsers>
             <useIngredientsForColor>false</useIngredientsForColor>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>

@@ -10,13 +10,13 @@ using Verse;
 namespace MGRRimworld.MGRAbilities
 {
     
-    class ShieldOverLoadAbility : PawnAbility
+    class NanomachineCoreAbility : PawnAbility
     {
 
         public MGRCompAbilityUser AbilityUser => (MGRCompAbilityUser)this.AbilityUser;
 
 
-        public ShieldOverLoadAbility() { 
+        public NanomachineCoreAbility() { 
             
         }
 

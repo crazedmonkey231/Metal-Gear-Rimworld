@@ -50,21 +50,21 @@
     </AbilityUser.AbilityDef>
 
 	<AbilityUser.AbilityDef ParentName="BaseAbility">
-		<defName>ShieldOverLoad</defName>
-        <label>Shield OverLoad</label>
-		<abilityClass>MGRRimworld.MGRAbilities.ShieldOverLoadAbility</abilityClass>
+		<defName>NanomachineCoreAbility</defName>
+        <label>NanomachineCoreAbility</label>
+		<abilityClass>MGRRimworld.MGRAbilities.NanomachineCoreAbility</abilityClass>
         <uiIconPath>UI/explosion</uiIconPath>
-        <description>Shield OverLoad.</description>
+        <description>Nanomachine core ability.</description>
         <MainVerb Class="AbilityUser.VerbProperties_Ability">
-            <verbClass>MGRRimworld.Effect_ShieldOverload</verbClass>
+            <verbClass>MGRRimworld.Effect_NanomachineCore</verbClass>
             <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
             <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
-            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
+            <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
             <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
-            <abilityDef>ShieldOverLoad</abilityDef>
+            <abilityDef>NanomachineCoreAbility</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>5</SecondsToRecharge>
+            <SecondsToRecharge>3</SecondsToRecharge>
             <soundCast>MessageBenefit</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>

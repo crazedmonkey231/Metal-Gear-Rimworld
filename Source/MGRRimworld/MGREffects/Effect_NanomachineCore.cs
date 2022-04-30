@@ -7,10 +7,7 @@ using Verse;
 
 namespace MGRRimworld
 {
-
-
-[StaticConstructorOnStartup]
-    class Effect_ShieldOverload : Verb_UseAbility
+    class Effect_NanomachineCore : Verb_UseAbility
     {
         private Pawn casterPawn;
         private Map map;
@@ -27,7 +24,6 @@ namespace MGRRimworld
             return true;
 
         }
-
         protected override bool TryCastShot()
         {
 
@@ -37,28 +33,34 @@ namespace MGRRimworld
             if (casterPawn.IsColonist)
             {
 
-                if (map.GameConditionManager.GetActiveCondition(GameConditionDefOf.SolarFlare) == null)
-                {
-                    map.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(GameConditionDefOf.SolarFlare, duration: 60000));
-                }
-
-                DamageInfo dinfo = new DamageInfo();
-                dinfo.SetAmount(RemoveAllMapBatteriesCharge());
-
-                if (casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower) != null)
-                {
-                    casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).PostAdd(dinfo);
-                    SearchForTargets(casterPawn.Position, 2, map, casterPawn);
-                }
-                else
-                {
-                    casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
-                }
+                Unleash();
+                CastingEffect(casterPawn.Position, 2, map, casterPawn);
 
                 return true;
 
             }
             return false;
+        }
+
+        private void Unleash()
+        {
+            if (map.GameConditionManager.GetActiveCondition(GameConditionDefOf.SolarFlare) == null)
+            {
+                map.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(GameConditionDefOf.SolarFlare, duration: 30000));
+            }
+            float totalEngery = RemoveAllMapBatteriesCharge();
+            if (totalEngery > 0) {
+                DamageInfo dinfo = new DamageInfo();
+                dinfo.SetAmount(totalEngery);
+                if (casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower) != null)
+                {
+                    casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).PostAdd(dinfo);
+                }
+                else
+                {
+                    casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
+                }
+            }
         }
 
         private float RemoveAllMapBatteriesCharge()
@@ -76,15 +78,15 @@ namespace MGRRimworld
             });
             return totalEnergy;
         }
-        public void SearchForTargets(IntVec3 center, float radius, Map map, Pawn pawn)
+        public void CastingEffect(IntVec3 center, float radius, Map map, Pawn pawn)
         {
 
             IEnumerable<IntVec3> source = GenRadial.RadialCellsAround(center, radius, true);
             for (int index = 0; index < source.Count<IntVec3>(); ++index)
             {
                 IntVec3 intVec3 = source.ToArray<IntVec3>()[index];
-                //FleckMaker.ThrowDustPuff(intVec3, map, 0.2f);
-                GenExplosion.DoExplosion(intVec3, map, radius, DamageDefOf.Bomb, pawn, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Explosion, postExplosionSpawnChance: 0f);
+                FleckMaker.ThrowDustPuff(intVec3, map, 0.2f);
+                GenExplosion.DoExplosion(intVec3, map, radius, DamageDefOf.Smoke, pawn, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 0f);
                 source.GetEnumerator().MoveNext();
             }
         }
