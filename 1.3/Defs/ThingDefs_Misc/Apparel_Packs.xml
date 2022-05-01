@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef ParentName="ApparelBase">
         <defName>MGR_Apparel_Exoframe</defName>
-        <label>mgr exoskeleton frame</label>
+        <label>Defensive Exo System</label>
         <thingClass>MGRApparel.MGR_ExoFrame</thingClass>
         <description>Combining a Vehicle-Mounted Active Denial System with the portability of an Exo suit. The D.E.S. can provide the user with impressive resistance against small to medium calibers. Additionally, the D.E.S. uses reactive armor technology that detonates with an explosion similar to an I.E.D. upon broken with a melee weapon.</description>
         <techLevel>Industrial</techLevel>
@@ -18,7 +18,7 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Machining</soundWorking>
             <skillRequirements>
-                <Crafting>9</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
         <costList>
@@ -30,7 +30,9 @@
         <graphicData>
             <texPath>Things/Apparel/Exoframe/MGR_ExoFrame</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
         </graphicData>
+		<size>(1,1)</size>
         <tickerType>Normal</tickerType>
         <statBases>
             <WorkToMake>14000</WorkToMake>

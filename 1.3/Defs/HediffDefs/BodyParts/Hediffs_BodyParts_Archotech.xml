@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
     <ThingDef Name="BodyPartMGRBase" ParentName="BodyPartBase" Abstract="True">
+        <description>Personal Evasive Robotic Add-Ons. Each bionic part contains within it a micro gravitational core which are attracted to each other, allowing the user to...in the most literal sense "bisect themselves" in order to avoid injuries.\nP.E.R.A. bionics come in both arm and leg add-on's</description>
         <techLevel>Spacer</techLevel>
         <thingCategories>
             <li>BodyPartsArchotech</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Item/Bionic/Monsoon</texPath>
+            <texPath>Things/Item/Bionic/BodyPart</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>1</drawSize>
         </graphicData>
@@ -56,6 +57,18 @@
         <descriptionHyperlinks>
             <ThingDef>MonsoonArm</ThingDef>
         </descriptionHyperlinks>
+		<initialSeverity>1</initialSeverity>
+		<isBad>false</isBad>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
+			  <MeleeDodgeChance>2</MeleeDodgeChance>
+			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+			</statOffsets>
+		  </li>
+		</stages>
         <comps>
             <li Class="HediffCompProperties_VerbGiver">
                 <tools>
@@ -82,8 +95,7 @@
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>MonsoonArm</defName>
         <label>monsoon arm</label>
-        <description>It's strong enough to crush a thick hardwood branch in its hand, and precise enough to write a sonnet on a grain of rice. It looks and feels like natural flesh, but it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
-        <descriptionHyperlinks>
+		<descriptionHyperlinks>
             <RecipeDef>InstallMonsoonArm</RecipeDef>
         </descriptionHyperlinks>
         <statBases>
@@ -144,6 +156,19 @@
         <descriptionHyperlinks>
             <ThingDef>MonsoonLeg</ThingDef>
         </descriptionHyperlinks>
+		<initialSeverity>1</initialSeverity>
+		<isBad>false</isBad>
+		<stages>
+		  <li>
+			<statOffsets>
+			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
+			  <MeleeDodgeChance>2</MeleeDodgeChance>
+			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+			  <MoveSpeed>0.5</MoveSpeed>
+			</statOffsets>
+		  </li>
+		</stages>		
         <comps>
             <li Class="HediffCompProperties_VerbGiver">
                 <tools>
@@ -170,8 +195,7 @@
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>MonsoonLeg</defName>
         <label>monsoon leg</label>
-        <description>It looks and feels like natural flesh, but a pair of these can move the user as fast as a decent car, and it's harder to damage than plasteel. Even if it is harmed, it repairs itself over time. Its internal workings are a mystery to all human minds.</description>
-        <descriptionHyperlinks>
+		<descriptionHyperlinks>
             <RecipeDef>InstallMonsoonLeg</RecipeDef>
         </descriptionHyperlinks>
         <statBases>
@@ -227,7 +251,7 @@
 	<AbilityDef Name="NanomachineCoreUnleashedBase">
 		<defName>NanomachineCoreUnleashed</defName>
 		<label>Nano\nMachines\nUnleashed</label>
-		<description>Unleash the full power of the nanomachine core.</description>
+		<description>Unleash the full power of the nanomachine core. Draining all power from all batteries and gaining power equivalent to power absorbed, creates a solar flare event also preventing continuous power gains.</description>
 		<targetRequired>False</targetRequired>
 		<gizmoClass>Command_Ability</gizmoClass>
 		<iconPath>UI/explosion</iconPath>
@@ -261,7 +285,12 @@
 		<stages>
 		  <li>
 			<statOffsets>
-			  <ImmunityGainSpeed>0.10</ImmunityGainSpeed>
+			  <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
+			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
+			  <MeleeDodgeChance>0.2</MeleeDodgeChance>
+			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+			  <InjuryHealingFactor>1.2</InjuryHealingFactor>
 			</statOffsets>
 		  </li>
 		</stages>
@@ -280,7 +309,7 @@
     <ThingDef ParentName="BodyPartMGRBase">
         <defName>NanomachineCore</defName>
         <label>nanomachine core</label>
-        <description>An advanced artificial core. It has synthetic muscle fibers for a realistic corebeat, plus a high-flow pump for rapid circulation during high stress. It is better than a biological core in almost every way.</description>
+        <description>Replacing the user's heart. This core contains millions of nanobots one-millionth of a millimeter in size. After syncing with the user's nervous system, these nanobots can be manipulated to repair damaged tissues, hardening in response to trauma, and more.\nAt a cost.\nThe first prototype was funded by and made for Admiral Armstrong of the Imperial Navy.</description>
         <descriptionHyperlinks>
             <RecipeDef>InstallNanomachineCore</RecipeDef>
         </descriptionHyperlinks>

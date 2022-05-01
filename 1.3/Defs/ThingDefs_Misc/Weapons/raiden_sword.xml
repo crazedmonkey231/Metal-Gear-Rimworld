@@ -2,8 +2,8 @@
 <Defs>
     <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MGR_RaidenSword</defName>
-        <label>MGR Raiden Sword</label>
-        <description>Hehe slicy dicy</description>
+        <label>MGS4</label>
+        <description>Legendary very powerful sword, passively increases move speed.</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/raiden-sword</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -27,8 +27,11 @@
             <WorkToMake>18000</WorkToMake>
             <Mass>1.5</Mass>
         </statBases>
+        <equippedStatOffsets>
+			<MoveSpeed>5.0</MoveSpeed>
+        </equippedStatOffsets>
         <relicChance>2</relicChance>
-        <equippedAngleOffset>0</equippedAngleOffset>
+        <equippedAngleOffset>-30</equippedAngleOffset>
         <tools>
             <li>
                 <label>handle</label>
@@ -67,15 +70,10 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <skillRequirements>
-                <Crafting>10</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
-		<comps>
-			<li>
-                <compClass>CompEquippable</compClass>
-            </li>
-		</comps>
     </ThingDef>
 
 </Defs>

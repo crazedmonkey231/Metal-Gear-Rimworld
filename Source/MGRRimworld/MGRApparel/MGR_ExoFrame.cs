@@ -131,10 +131,10 @@ namespace MGRApparel
                 {
                     Log.Message("instigator " + dinfo.Instigator + " : target" + dinfo.IntendedTarget);
 
-                    DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, 100, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
+                    DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, armorPenetration:200, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
                     recoil.SetAllowDamagePropagation(false);
                     recoil.Instigator.TakeDamage(dinfo);
-                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 0.5f, DamageDefOf.Bomb, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
+                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 1f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
                 }
             }
             else

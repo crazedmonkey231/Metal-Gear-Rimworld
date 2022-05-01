@@ -42,7 +42,7 @@
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>3</SecondsToRecharge>
             <range>5</range>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>ThrowGrenade</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
 			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
@@ -65,7 +65,7 @@
             <abilityDef>NanomachineCoreAbility</abilityDef>
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>3</SecondsToRecharge>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>ThrowGrenade</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
 			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>

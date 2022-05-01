@@ -2,8 +2,8 @@
 <Defs>
     <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MeleeWeapon_MGR_Katana</defName>
-        <label>MGR Katana</label>
-        <description>MGR Katana</description>
+        <label>Duelist Objectifier</label>
+        <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -68,23 +68,34 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <skillRequirements>
-                <Crafting>10</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
-		<comps>
-			<li Class="AbilityUser.CompProperties_AbilityItem">
-				<Abilities>
-					<li>TrueDamageAbility</li>
-				</Abilities>
-			</li>
-		</comps>
+    <verbs>
+      <li>
+        <label>true damage ability</label>
+        <verbClass>MGRRimworld.Effect_TrueDamage</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<commandIcon>UI/sword-slice</commandIcon>
+        <range>15</range>
+		<requireLineOfSight>true</requireLineOfSight>
+        <warmupTime>1.5</warmupTime>
+        <noiseRadius>5</noiseRadius>
+        <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+        <soundCast>ThrowGrenade</soundCast>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+      </li>
+    </verbs>
     </ThingDef>
 	
     <ThingDef ParentName="ApparelBase">
-        <defName>MeleeWeapon_MGR_Katana_Sheath</defName>
-        <label>MGR Katana Sheath</label>
-        <description>MGR Katana Sheath</description>
+        <defName>MGR_Katana_Sheath</defName>
+        <label>Quick-Draw Sheath</label>
+        <description>Lined with a Synthread and Hyperweave mixture, This specialized sheath is designed to contain the unstable power of the D.O. Able to fire out the blae within at high speed for an ultra-clean cut.</description>
         <techLevel>Industrial</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
@@ -98,17 +109,20 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <skillRequirements>
-                <Crafting>10</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
         <costList>
             <ComponentIndustrial>1</ComponentIndustrial>
             <Steel>20</Steel>
-            <Plasteel>40</Plasteel>
+            <Plasteel>20</Plasteel>
+			<Synthread>5</Synthread>
+			<Hyperweave>5</Hyperweave>
         </costList>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana-sheath</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
         </graphicData>
         <size>(1,1)</size>
         <tickerType>Normal</tickerType>
@@ -116,8 +130,12 @@
             <WorkToMake>1200</WorkToMake>
             <Mass>1</Mass>
             <Flammability>0</Flammability>
-            <EquipDelay>2</EquipDelay>
+            <EquipDelay>1</EquipDelay>
         </statBases>
+        <equippedStatOffsets>
+			<MeleeHitChance>5.0</MeleeHitChance>
+			<MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier>
+        </equippedStatOffsets>
         <thingCategories>
             <li>ApparelUtility</li>
         </thingCategories>

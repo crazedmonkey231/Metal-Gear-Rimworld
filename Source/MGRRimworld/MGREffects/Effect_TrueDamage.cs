@@ -10,7 +10,7 @@ using Verse;
 namespace MGRRimworld
 {
     [StaticConstructorOnStartup]
-    class Effect_TrueDamage : Verb_UseAbility
+    class Effect_TrueDamage : Verb_LaunchProjectile
     {
 
         private int verVal = 5;
@@ -65,7 +65,7 @@ namespace MGRRimworld
                     {
                         Pawn casterPawn = ((Effect_TrueDamage)this).CasterPawn;
                         Map map = ((Effect_TrueDamage)this).CasterPawn.Map;
-                        IntVec3 position = ((Effect_TrueDamage)this).CasterPawn.Position;
+                        IntVec3 originalPosition = ((Effect_TrueDamage)this).CasterPawn.Position;
                         bool drafted = casterPawn.Drafted;
                         if (casterPawn.IsColonist)
                         {
@@ -73,9 +73,9 @@ namespace MGRRimworld
                             {
                                 ThingSelectionUtility.SelectNextColonist();
                                 ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.WillReplace);
-                                this.SearchForTargets(this.center, 2f + 0.5f * (float)this.verVal, map, casterPawn);
+                                this.SearchForTargets(this.center, 3, map, casterPawn);
                                 GenSpawn.Spawn(casterPawn, this.currentTarget.Cell, map);
-                                this.DrawBlade(casterPawn.Position.ToVector3Shifted(), 4f + (float)this.verVal);
+                                this.DrawBlade(this.CasterPawn.Position.ToVector3Shifted(), 3);
                                 casterPawn.drafter.Drafted = drafted;
                                 CameraJumper.TryJumpAndSelect((GlobalTargetInfo)(Thing)casterPawn);
                                 MGR_MoteMaker.ThrowGenericMote(MGRDefOf.MGRDefOf.MGR_Mote_BladeSweep, ((Effect_TrueDamage)this).CasterPawn.DrawPos, ((Effect_TrueDamage)this).CasterPawn.Map, (float)(1.39999997615814 + 0.400000005960464), 0.04f, 0.0f, 0.18f, 1000, 0.0f, 0.0f, (float)Rand.Range(0, 360));
@@ -84,7 +84,7 @@ namespace MGRRimworld
                             {
                                 if (!((Effect_TrueDamage)this).CasterPawn.Spawned)
                                 {
-                                    GenSpawn.Spawn((Thing)casterPawn, position, map);
+                                    GenSpawn.Spawn((Thing)casterPawn, originalPosition, map);
                                     casterPawn.drafter.Drafted = true;
                                     Log.Message("Threw exception - despawned pawn has been recovered at casting location");
                                 }
@@ -98,7 +98,7 @@ namespace MGRRimworld
 
 
                             ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.Vanish);
-                            this.SearchForTargets(this.center, 2f + 0.5f * (float)this.verVal, map, casterPawn);
+                            this.SearchForTargets(center, 3, map, casterPawn);
                             GenSpawn.Spawn((Thing)casterPawn, ((Effect_TrueDamage)this).currentTarget.Cell, map);
                             this.DrawBlade(casterPawn.Position.ToVector3Shifted(), 4f + (float)this.verVal);
                         }
