@@ -41,7 +41,7 @@ namespace MGRRimworld
             bool flag1 = false;
 
 
-            if (((Effect_TrueDamage)this).CasterPawn.equipment.Primary != null)
+            if (((Effect_TrueDamage)this).CasterPawn.equipment.Primary != null && this.CasterPawn.IsColonist)
             {
 
                 bool flag2;
@@ -110,7 +110,6 @@ namespace MGRRimworld
                 CameraJumper.TryJumpAndSelect((GlobalTargetInfo)(Thing)CasterPawn);
                 return flag1;
             }
-            Messages.Message((string)"MustHaveMeleeWeapon".Translate((NamedArgument)((Effect_TrueDamage)this).CasterPawn.LabelCap), MessageTypeDefOf.RejectInput);
             return false;
         }
 

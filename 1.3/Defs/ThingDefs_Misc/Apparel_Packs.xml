@@ -21,6 +21,7 @@
                 <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
+		<generateCommonality>0.0</generateCommonality>
         <costList>
             <Plasteel>25</Plasteel>
             <Steel>35</Steel>

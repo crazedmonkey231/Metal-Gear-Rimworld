@@ -14,6 +14,7 @@
         <weaponTags>
             <li>SpacerMeleeAdvanced</li>
         </weaponTags>
+		<generateCommonality>0.0</generateCommonality>
         <costList>
             <Steel>25</Steel>
             <Plasteel>10</Plasteel>
@@ -112,6 +113,7 @@
                 <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
+		<generateCommonality>0.0</generateCommonality>
         <costList>
             <ComponentIndustrial>1</ComponentIndustrial>
             <Steel>20</Steel>
