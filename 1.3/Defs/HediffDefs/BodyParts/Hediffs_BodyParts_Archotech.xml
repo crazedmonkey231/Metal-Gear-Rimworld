@@ -22,9 +22,9 @@
             <DeteriorationRate>0</DeteriorationRate>
         </statBases>
         <costList>
+            <ComponentSpacer>5</ComponentSpacer>
             <Steel>50</Steel>
             <Plasteel>50</Plasteel>
-            <ComponentSpacer>5</ComponentSpacer>
         </costList>
         <recipeMaker>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -40,22 +40,16 @@
                 <li>FabricationBench</li>
             </recipeUsers>
         </recipeMaker>
-        <comps>
-            <li Class="CompProperties_Glower">
-                <glowRadius>2</glowRadius>
-                <glowColor>(255,0,0,0)</glowColor>
-            </li>
-        </comps>
     </ThingDef>
 	
-    <!-- Monsoon arm -->
+    <!-- Personal Evasive Robotic Add-On Arm -->
     <HediffDef ParentName="AddedBodyPartBase">
-        <defName>MonsoonArm</defName>
-        <label>monsoon arm</label>
-        <labelNoun>an Monsoon arm</labelNoun>
-        <description>An installed Monsoon arm.</description>
+        <defName>PERA_Arm</defName>
+        <label>Personal Evasive Robotic Add-On Arm</label>
+        <labelNoun>a Personal Evasive Robotic Add-On Arm</labelNoun>
+        <description>An installed Personal Evasive Robotic Add-On Arm.</description>
         <descriptionHyperlinks>
-            <ThingDef>MonsoonArm</ThingDef>
+            <ThingDef>PERA_Arm</ThingDef>
         </descriptionHyperlinks>
 		<initialSeverity>1</initialSeverity>
 		<isBad>false</isBad>
@@ -85,7 +79,7 @@
                 </tools>
             </li>
         </comps>
-        <spawnThingOnRemoved>MonsoonArm</spawnThingOnRemoved>
+        <spawnThingOnRemoved>PERA_Arm</spawnThingOnRemoved>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1.80</partEfficiency>
@@ -93,10 +87,10 @@
         </addedPartProps>
     </HediffDef>
     <ThingDef ParentName="BodyPartMGRBase">
-        <defName>MonsoonArm</defName>
-        <label>monsoon arm</label>
+        <defName>PERA_Arm</defName>
+        <label>Personal Evasive Robotic Add-On Arm</label>
 		<descriptionHyperlinks>
-            <RecipeDef>InstallMonsoonArm</RecipeDef>
+            <RecipeDef>InstallPERA_Arm</RecipeDef>
         </descriptionHyperlinks>
         <statBases>
             <MarketValue>2800</MarketValue>
@@ -105,21 +99,27 @@
         <thingSetMakerTags>
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>2</glowRadius>
+                <glowColor>(255,0,0,0)</glowColor>
+            </li>
+        </comps>
     </ThingDef>
     <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
-        <defName>InstallMonsoonArm</defName>
-        <label>install monsoon arm</label>
-        <description>Install an Monsoon arm.</description>
+        <defName>InstallPERA_Arm</defName>
+        <label>install Personal Evasive Robotic Add-On Arm</label>
+        <description>Install an Personal Evasive Robotic Add-On Arm.</description>
         <descriptionHyperlinks>
-            <ThingDef>MonsoonArm</ThingDef>
-            <HediffDef>MonsoonArm</HediffDef>
+            <ThingDef>PERA_Arm</ThingDef>
+            <HediffDef>PERA_Arm</HediffDef>
         </descriptionHyperlinks>
-        <jobString>Installing Monsoon arm.</jobString>
+        <jobString>Installing Personal Evasive Robotic Add-On Arm.</jobString>
         <ingredients>
             <li>
                 <filter>
                     <thingDefs>
-                        <li>MonsoonArm</li>
+                        <li>PERA_Arm</li>
                     </thingDefs>
                 </filter>
                 <count>1</count>
@@ -127,34 +127,34 @@
         </ingredients>
         <fixedIngredientFilter>
             <thingDefs>
-                <li>MonsoonArm</li>
+                <li>PERA_Arm</li>
             </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
             <li>Shoulder</li>
         </appliedOnFixedBodyParts>
-        <addsHediff>MonsoonArm</addsHediff>
+        <addsHediff>PERA_Arm</addsHediff>
     </RecipeDef>
 	<RecipeDef ParentName="SurgeryRemoveImplantBase">
-		<defName>RemoveMonsoonArm</defName>
-		<label>remove monsoon arm</label>
-		<description>Remove monsoon arm.</description>
+		<defName>RemovePERA_Arm</defName>
+		<label>remove Personal Evasive Robotic Add-On Arm</label>
+		<description>Remove Personal Evasive Robotic Add-On Arm.</description>
 		<descriptionHyperlinks>
-		  <ThingDef>MonsoonArm</ThingDef>
-		  <HediffDef>MonsoonArm</HediffDef>
+		  <ThingDef>PERA_Arm</ThingDef>
+		  <HediffDef>PERA_Arm</HediffDef>
 		</descriptionHyperlinks>
-		<jobString>Removing monsoon arm.</jobString>
-		<removesHediff>MonsoonArm</removesHediff>
+		<jobString>Removing Personal Evasive Robotic Add-On Arm.</jobString>
+		<removesHediff>PERA_Arm</removesHediff>
 	</RecipeDef>
 	
-    <!-- Monsoon leg -->
+    <!-- Personal Evasive Robotic Add-On Leg -->
     <HediffDef ParentName="AddedBodyPartBase">
-        <defName>MonsoonLeg</defName>
-        <label>monsoon leg</label>
-        <labelNoun>an Monsoon leg</labelNoun>
-        <description>An installed Monsoon leg.</description>
+        <defName>PERA_Leg</defName>
+        <label>Personal Evasive Robotic Add-On Leg</label>
+        <labelNoun>a Personal Evasive Robotic Add-On Leg</labelNoun>
+        <description>An installed Personal Evasive Robotic Add-On Leg.</description>
         <descriptionHyperlinks>
-            <ThingDef>MonsoonLeg</ThingDef>
+            <ThingDef>PERA_Leg</ThingDef>
         </descriptionHyperlinks>
 		<initialSeverity>1</initialSeverity>
 		<isBad>false</isBad>
@@ -185,7 +185,7 @@
                 </tools>
             </li>
         </comps>
-        <spawnThingOnRemoved>MonsoonLeg</spawnThingOnRemoved>
+        <spawnThingOnRemoved>PERA_Leg</spawnThingOnRemoved>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1.80</partEfficiency>
@@ -193,10 +193,10 @@
         </addedPartProps>
     </HediffDef>
     <ThingDef ParentName="BodyPartMGRBase">
-        <defName>MonsoonLeg</defName>
-        <label>monsoon leg</label>
+        <defName>PERA_Leg</defName>
+        <label>Personal Evasive Robotic Add-On Leg</label>
 		<descriptionHyperlinks>
-            <RecipeDef>InstallMonsoonLeg</RecipeDef>
+            <RecipeDef>InstallPERA_Leg</RecipeDef>
         </descriptionHyperlinks>
         <statBases>
             <MarketValue>2800</MarketValue>
@@ -205,21 +205,27 @@
         <thingSetMakerTags>
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>2</glowRadius>
+                <glowColor>(255,0,0,0)</glowColor>
+            </li>
+        </comps>
     </ThingDef>
     <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
-        <defName>InstallMonsoonLeg</defName>
-        <label>install monsoon leg</label>
-        <description>Install an Monsoon leg.</description>
+        <defName>InstallPERA_Leg</defName>
+        <label>install Personal Evasive Robotic Add-On Leg</label>
+        <description>Install an Personal Evasive Robotic Add-On Leg.</description>
         <descriptionHyperlinks>
-            <ThingDef>MonsoonLeg</ThingDef>
-            <HediffDef>MonsoonLeg</HediffDef>
+            <ThingDef>PERA_Leg</ThingDef>
+            <HediffDef>PERA_Leg</HediffDef>
         </descriptionHyperlinks>
-        <jobString>Installing Monsoon leg.</jobString>
+        <jobString>Installing Personal Evasive Robotic Add-On Leg.</jobString>
         <ingredients>
             <li>
                 <filter>
                     <thingDefs>
-                        <li>MonsoonLeg</li>
+                        <li>PERA_Leg</li>
                     </thingDefs>
                 </filter>
                 <count>1</count>
@@ -227,24 +233,24 @@
         </ingredients>
         <fixedIngredientFilter>
             <thingDefs>
-                <li>MonsoonLeg</li>
+                <li>PERA_Leg</li>
             </thingDefs>
         </fixedIngredientFilter>
         <appliedOnFixedBodyParts>
             <li>Leg</li>
         </appliedOnFixedBodyParts>
-        <addsHediff>MonsoonLeg</addsHediff>
+        <addsHediff>PERA_Leg</addsHediff>
     </RecipeDef>
 	<RecipeDef ParentName="SurgeryRemoveImplantBase">
-		<defName>RemoveMonsoonLeg</defName>
-		<label>remove monsoon leg</label>
-		<description>Remove monsoon leg.</description>
+		<defName>RemovePERA_Leg</defName>
+		<label>remove Personal Evasive Robotic Add-On Leg</label>
+		<description>Remove Personal Evasive Robotic Add-On Leg.</description>
 		<descriptionHyperlinks>
-		  <ThingDef>MonsoonLeg</ThingDef>
-		  <HediffDef>MonsoonLeg</HediffDef>
+		  <ThingDef>PERA_Leg</ThingDef>
+		  <HediffDef>PERA_Leg</HediffDef>
 		</descriptionHyperlinks>
-		<jobString>Removing monsoon leg.</jobString>
-		<removesHediff>MonsoonLeg</removesHediff>
+		<jobString>Removing Personal Evasive Robotic Add-On Leg.</jobString>
+		<removesHediff>PERA_Leg</removesHediff>
 	</RecipeDef>
 	
     <!-- NanomachineCore -->
@@ -313,10 +319,35 @@
         <descriptionHyperlinks>
             <RecipeDef>InstallNanomachineCore</RecipeDef>
         </descriptionHyperlinks>
+        <graphicData>
+            <texPath>Things/Item/Bionic/Nanomachines</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1</drawSize>
+        </graphicData>
         <costList>
             <Chemfuel>50</Chemfuel>
             <Neutroamine>50</Neutroamine>
         </costList>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <unfinishedThingDef>UnfinishedHealthItemMGRNanomachineCore</unfinishedThingDef>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+            <researchPrerequisite>CyborgNinja</researchPrerequisite>
+            <recipeUsers>
+                <li>FabricationBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>2</glowRadius>
+                <glowColor>(217,217,217,0)</glowColor>
+            </li>
+        </comps>
     </ThingDef>
 	
     <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">

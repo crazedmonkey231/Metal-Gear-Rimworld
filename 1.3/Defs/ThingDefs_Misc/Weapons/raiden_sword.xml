@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MGR_RaidenSword</defName>
-        <label>MGS4</label>
+        <label>HF Blade</label>
         <description>Legendary very powerful sword, passively increases move speed.</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/raiden-sword</texPath>
@@ -39,7 +39,7 @@
                     <li>Blunt</li>
                 </capacities>
                 <power>15</power>
-                <cooldownTime>0.75</cooldownTime>
+                <cooldownTime>1</cooldownTime>
             </li>
             <li>
                 <label>point</label>
@@ -47,7 +47,7 @@
                     <li>Stab</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>0.75</cooldownTime>
+                <cooldownTime>1</cooldownTime>
             </li>
             <li>
                 <label>edge</label>
@@ -55,7 +55,7 @@
                     <li>Cut</li>
                 </capacities>
                 <power>50</power>
-                <cooldownTime>0.75</cooldownTime>
+                <cooldownTime>1</cooldownTime>
             </li>
         </tools>
         <recipeMaker>

@@ -77,7 +77,6 @@ namespace MGRRimworld
                                 GenSpawn.Spawn(casterPawn, this.currentTarget.Cell, map);
                                 this.DrawBlade(this.CasterPawn.Position.ToVector3Shifted(), 3);
                                 casterPawn.drafter.Drafted = drafted;
-                                CameraJumper.TryJumpAndSelect((GlobalTargetInfo)(Thing)casterPawn);
                                 MGR_MoteMaker.ThrowGenericMote(MGRDefOf.MGRDefOf.MGR_Mote_BladeSweep, ((Effect_TrueDamage)this).CasterPawn.DrawPos, ((Effect_TrueDamage)this).CasterPawn.Map, (float)(1.39999997615814 + 0.400000005960464), 0.04f, 0.0f, 0.18f, 1000, 0.0f, 0.0f, (float)Rand.Range(0, 360));
                             }
                             catch
@@ -107,7 +106,8 @@ namespace MGRRimworld
                     else
                         Messages.Message((string)"InvalidTargetLocation".Translate(), MessageTypeDefOf.RejectInput);
                 }
-              ((Effect_TrueDamage)this).burstShotsLeft = 0;
+                ((Effect_TrueDamage)this).burstShotsLeft = 0;
+                CameraJumper.TryJumpAndSelect((GlobalTargetInfo)(Thing)CasterPawn);
                 return flag1;
             }
             Messages.Message((string)"MustHaveMeleeWeapon".Translate((NamedArgument)((Effect_TrueDamage)this).CasterPawn.LabelCap), MessageTypeDefOf.RejectInput);
@@ -124,7 +124,7 @@ namespace MGRRimworld
                 FleckMaker.ThrowDustPuff(intVec3, map, 0.2f);
                 if (intVec3.InBounds(map) && intVec3.IsValid)
                     victim = intVec3.GetFirstPawn(map);
-                if (victim != null )//&& victim.Faction != pawn.Faction)
+                if (victim != null && victim.Faction != pawn.Faction && !victim.Faction.HostileTo(pawn.Faction))
                 {
                     if (Rand.Chance((float)(0.05 + 0.15 * pawn.skills.GetSkill(SkillDefOf.Melee).levelInt)/2))
                     {

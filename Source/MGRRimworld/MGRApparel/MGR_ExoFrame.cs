@@ -2,6 +2,7 @@
 using MGRRimworld;
 using MGRRimworld.MGRAbilities;
 using MGRRimworld.MGRComps;
+using MGRRimworld.MGRDefOf;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -124,10 +125,10 @@ namespace MGRApparel
                 return false;
             }
             this.energy -= dinfo.Amount * this.EnergyLossPerDamage;
-            if ((double)this.energy < 0.0)
+            if ((double)this.energy <= 0.0)
             {
-                this.Break();
-                if (dinfo.Weapon == null || dinfo.Weapon.IsMeleeWeapon)
+                Log.Message("broken " + dinfo.ToString() + " : " + dinfo.Weapon.IsMeleeWeapon);
+                if (dinfo.Weapon == null || dinfo.Weapon.IsMeleeWeapon || dinfo.Weapon.defName.Equals(MGRDefOf.MeleeWeapon_MGR_Katana.defName))
                 {
                     Log.Message("instigator " + dinfo.Instigator + " : target" + dinfo.IntendedTarget);
 
@@ -136,6 +137,8 @@ namespace MGRApparel
                     recoil.Instigator.TakeDamage(dinfo);
                     GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 1f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
                 }
+
+                this.Break();
             }
             else
             {
@@ -212,5 +215,6 @@ namespace MGRApparel
         }
 
         public override bool AllowVerbCast(Verb verb) => true;
+
     }
 }
