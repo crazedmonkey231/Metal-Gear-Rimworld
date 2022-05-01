@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-
-
-    <ThingDef Name="BaseAbilityLaser" ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
-        <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
+    <ThingDef ParentName="BaseBullet">
         <defName>Projectile_BaseAbility</defName>
         <label>my ability projectile</label>
         <graphicData>
@@ -11,66 +8,9 @@
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-            <flyOverhead>false</flyOverhead>
             <damageDef>Stun</damageDef>
             <damageAmountBase>0</damageAmountBase>
             <speed>80</speed>
         </projectile>
-        <preFiringInitialIntensity>0</preFiringInitialIntensity>
-        <preFiringFinalIntensity>20</preFiringFinalIntensity>
-        <postFiringInitialIntensity>20</postFiringInitialIntensity>
-        <postFiringFinalIntensity>0</postFiringFinalIntensity>
-        <preFiringDuration>1</preFiringDuration>
-        <postFiringDuration>90</postFiringDuration>
-        <StartFireChance>0.000</StartFireChance>
     </ThingDef>
-
-    <AbilityUser.AbilityDef ParentName="BaseAbility">
-        <defName>TrueDamageAbility</defName>
-        <label>True Damage</label>
-		<abilityClass>MGRRimworld.MGRAbilities.TrueDamageAbility</abilityClass>
-        <uiIconPath>UI/sword-slice</uiIconPath>
-        <description>True Damage Slice.</description>
-        <MainVerb Class="AbilityUser.VerbProperties_Ability">
-            <verbClass>MGRRimworld.Effect_TrueDamage</verbClass>
-            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
-            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
-            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
-            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
-            <hasStandardCommand>true</hasStandardCommand>
-            <abilityDef>TrueDamageAbility</abilityDef>
-            <warmupTime>1</warmupTime>
-            <SecondsToRecharge>3</SecondsToRecharge>
-            <range>5</range>
-            <soundCast>ThrowGrenade</soundCast>
-            <muzzleFlashScale>20</muzzleFlashScale>
-            <isPrimary>false</isPrimary>
-			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
-        </MainVerb>
-    </AbilityUser.AbilityDef>
-
-	<AbilityUser.AbilityDef ParentName="BaseAbility">
-		<defName>NanomachineCoreAbility</defName>
-        <label>NanomachineCoreAbility</label>
-		<abilityClass>MGRRimworld.MGRAbilities.NanomachineCoreAbility</abilityClass>
-        <uiIconPath>UI/explosion</uiIconPath>
-        <description>Nanomachine core ability.</description>
-        <MainVerb Class="AbilityUser.VerbProperties_Ability">
-            <verbClass>MGRRimworld.Effect_NanomachineCore</verbClass>
-            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
-            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
-            <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
-            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
-            <hasStandardCommand>true</hasStandardCommand>
-            <abilityDef>NanomachineCoreAbility</abilityDef>
-            <warmupTime>1</warmupTime>
-            <SecondsToRecharge>3</SecondsToRecharge>
-            <soundCast>ThrowGrenade</soundCast>
-            <muzzleFlashScale>20</muzzleFlashScale>
-            <isPrimary>false</isPrimary>
-			<defaultProjectile>Projectile_BaseAbility</defaultProjectile>
-			<AbilityTargetCategory>TargetSelf</AbilityTargetCategory>
-        </MainVerb>
-    </AbilityUser.AbilityDef>
-  
 </Defs>

@@ -8,15 +8,8 @@
     </supportedVersions>
     <description>Metal Rim Rising</description>
     <modDependencies>
-        <li>
-            <packageId>jecrell.jecstools</packageId>
-            <displayName>JecsTools</displayName>
-            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=932008009</steamWorkshopUrl>
-            <downloadUrl>https://discord.gg/AaVFA7V</downloadUrl>
-        </li>
     </modDependencies>
     <loadAfter>
         <li>Ludeon.RimWorld</li>
-        <li>jecrell.jecstools</li>
     </loadAfter>
 </ModMetaData>

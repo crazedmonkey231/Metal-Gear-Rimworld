@@ -6,10 +6,6 @@ namespace MGRRimworld.MGRDefOf
     [DefOf]
     class MGRDefOf
     {
-
-        public static AbilityUser.AbilityDef TrueDamageAbility;
-        public static AbilityUser.AbilityDef NanomachineCoreAbility;
-
         public static AbilityDef NanomachineCoreUnleashed;
 
         public static ThingDef MGR_Mote_BloodSquirt;

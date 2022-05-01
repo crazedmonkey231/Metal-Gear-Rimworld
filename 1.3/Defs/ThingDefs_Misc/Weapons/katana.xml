@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef ParentName="MeleeWeaponUltratech">
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>MeleeWeapon_MGR_Katana</defName>
         <label>Duelist Objectifier</label>
         <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.</description>

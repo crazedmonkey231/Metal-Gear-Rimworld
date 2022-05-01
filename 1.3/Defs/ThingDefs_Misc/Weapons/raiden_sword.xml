@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef ParentName="MeleeWeaponUltratech">
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>MGR_RaidenSword</defName>
         <label>Maverick Blade</label>
         <description>A standard-issue High-Frequency Blade that is intended for security personnel. Designed for speed without sacrificing power, the blade enhances the wielder's move speed with providing excellent damage.</description>

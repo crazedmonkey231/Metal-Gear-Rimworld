@@ -1,5 +1,4 @@
-﻿using AbilityUser;
-using MGRRimworld.MGRMoteMaker;
+﻿using MGRRimworld.MGRMoteMaker;
 using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;

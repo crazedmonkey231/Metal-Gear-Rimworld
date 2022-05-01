@@ -1,10 +1,6 @@
 ﻿using MGRApparel.MGRGizmo;
-using MGRRimworld;
-using MGRRimworld.MGRAbilities;
-using MGRRimworld.MGRComps;
 using MGRRimworld.MGRDefOf;
 using RimWorld;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;

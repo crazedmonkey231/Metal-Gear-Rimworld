@@ -1,5 +1,4 @@
-﻿using AbilityUser;
-using RimWorld;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +6,14 @@ using Verse;
 
 namespace MGRRimworld
 {
-    class Effect_NanomachineCore : Verb_UseAbility
+    class Effect_NanomachineCore : Verb_LaunchProjectile
     {
         private Pawn casterPawn;
         private Map map;
 
         protected string letterTitle = "Nanomachines Unleashed";
         protected string letterLabel = "Nanomachines Unleashed";
-        protected string letterText = "Nanomachine core has been unleashed, initating solar flare.";
+        protected string letterText = "Nanomachine core has been unleashed, initating a solar flare.";
         protected ChoiceLetter letter;
 
         public override bool Available()
