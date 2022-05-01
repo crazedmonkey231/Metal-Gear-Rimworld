@@ -2,8 +2,8 @@
 <Defs>
     <ThingDef ParentName="MeleeWeaponUltratech">
         <defName>MGR_RaidenSword</defName>
-        <label>HF Blade</label>
-        <description>Legendary very powerful sword, passively increases move speed.</description>
+        <label>Maverick Blade</label>
+        <description>A standard-issue High-Frequency Blade that is intended for security personnel. Designed for speed without sacrificing power, the blade enhances the wielder's move speed with providing excellent damage.</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/raiden-sword</texPath>
             <graphicClass>Graphic_Single</graphicClass>
