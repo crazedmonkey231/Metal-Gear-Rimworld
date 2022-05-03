@@ -23,8 +23,8 @@ namespace MGRRimworld.MGRComps
 
         public override void Notify_Unequipped(Pawn pawn)
         {
-
-            pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.hediff));
+            if(pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.hediff) != null)
+                pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.hediff));
 
         }
 

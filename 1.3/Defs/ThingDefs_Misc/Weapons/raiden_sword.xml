@@ -16,10 +16,10 @@
         </weaponTags>
 		<generateCommonality>0.0</generateCommonality>
         <costList>
-            <Steel>50</Steel>
-            <Plasteel>50</Plasteel>
             <ComponentIndustrial>5</ComponentIndustrial>
             <ComponentSpacer>5</ComponentSpacer>
+            <Steel>50</Steel>
+            <Plasteel>50</Plasteel>
         </costList>
         <thingSetMakerTags>
             <li>RewardStandardQualitySuper</li>
@@ -29,7 +29,9 @@
             <Mass>1.5</Mass>
         </statBases>
         <equippedStatOffsets>
-			<MoveSpeed>5</MoveSpeed>
+			<MoveSpeed>1.5</MoveSpeed>
+			<MeleeHitChance>-3.0</MeleeHitChance>
+			<MeleeDodgeChance>1.5</MeleeDodgeChance>
         </equippedStatOffsets>
         <relicChance>2</relicChance>
         <equippedAngleOffset>-30</equippedAngleOffset>
@@ -39,7 +41,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>12</power>
+                <power>8</power>
                 <cooldownTime>1</cooldownTime>
             </li>
             <li>
@@ -47,7 +49,7 @@
                 <capacities>
                     <li>Stab</li>
                 </capacities>
-                <power>25</power>
+                <power>12</power>
                 <cooldownTime>1</cooldownTime>
             </li>
             <li>
@@ -55,7 +57,7 @@
                 <capacities>
                     <li>Cut</li>
                 </capacities>
-                <power>25</power>
+                <power>30</power>
                 <cooldownTime>1</cooldownTime>
             </li>
         </tools>

@@ -74,6 +74,11 @@
             </skillRequirements>
         </recipeMaker>
         <allowedArchonexusCount>1</allowedArchonexusCount>
+		<comps>
+			<li Class="MGRRimworld.MGRComps.CompProperties_ItemAddAbility">
+				<hediff>DuelistObjectifierPower</hediff>
+			</li>
+		</comps>
     </ThingDef>
 
     <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
@@ -167,6 +172,11 @@
                 <defaultProjectile>Projectile_BaseAbility</defaultProjectile>
             </li>
         </verbs>
+		<comps>
+			<li Class="MGRRimworld.MGRComps.CompProperties_ItemAddAbility">
+				<hediff>DuelistObjectifierPower</hediff>
+			</li>
+		</comps>
     </ThingDef>	
 	
     <ThingDef ParentName="ApparelBase">

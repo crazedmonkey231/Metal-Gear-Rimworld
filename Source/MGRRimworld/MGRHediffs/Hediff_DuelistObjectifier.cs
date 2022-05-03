@@ -14,11 +14,9 @@ namespace MGRRimworld.MGRHediffs
 
         public override void ExposeData()
         {
+
             base.ExposeData();
-            if (Scribe.mode != LoadSaveMode.PostLoadInit || this.Part != null)
-                return;
-            Log.Error(this.GetType().Name + " has null part after loading.");
-            this.pawn.health.hediffSet.hediffs.Remove((Hediff)this);
+
         }
 
         public override void Tick()
