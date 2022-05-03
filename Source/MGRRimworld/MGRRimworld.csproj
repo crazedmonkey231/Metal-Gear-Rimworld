@@ -61,11 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MGRComps\CompProperties_ItemAddAbility.cs" />
+    <Compile Include="MGRComps\CompItemAddAbility.cs" />
     <Compile Include="MGREffects\Effect_NanomachineCore.cs" />
     <Compile Include="MGREffects\Effect_TrueDamage.cs" />
     <Compile Include="MGRGizmo\MGR_Gizmo_ExoFrame.cs" />
     <Compile Include="MGRApparel\MGR_ExoFrame.cs" />
     <Compile Include="MGRDefOf\MGRDefOf.cs" />
+    <Compile Include="MGRHediffs\Hediff_DuelistObjectifier.cs" />
     <Compile Include="MGRHediffs\Hediff_NanomachinePower.cs" />
     <Compile Include="MGRHediffs\Hediff_NanomachineCore.cs" />
     <Compile Include="MGRMoteMaker\MGR_MoteMaker.cs" />

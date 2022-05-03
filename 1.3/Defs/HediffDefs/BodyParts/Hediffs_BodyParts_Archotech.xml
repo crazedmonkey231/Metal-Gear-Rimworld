@@ -266,8 +266,8 @@
 		<verbProperties>
 			<verbClass>MGRRimworld.Effect_NanomachineCore</verbClass>
 			<range>-1</range>
-			<warmupTime>2</warmupTime>
-			<defaultCooldownTime>5</defaultCooldownTime>
+			<warmupTime>3</warmupTime>
+			<defaultCooldownTime>1</defaultCooldownTime>
 		</verbProperties>
 		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 		<comps>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>DuelistObjectifierPower</defName>
+        <hediffClass>MGRRimworld.MGRHediffs.Hediff_DuelistObjectifier</hediffClass>
+        <label>Power of the Duelist Objectifier</label>
+        <description>Duelist Objectifier power</description>
+        <initialSeverity>1</initialSeverity>
+        <isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_GiveAbility">
+				<abilityDef>TrueDamageAbility</abilityDef>
+			</li>
+		</comps>
+    </HediffDef>
+</Defs>

@@ -25,11 +25,11 @@
             <li>RewardStandardQualitySuper</li>
         </thingSetMakerTags>
         <statBases>
-            <WorkToMake>18000</WorkToMake>
+            <WorkToMake>6000</WorkToMake>
             <Mass>1.5</Mass>
         </statBases>
         <equippedStatOffsets>
-			<MoveSpeed>5.0</MoveSpeed>
+			<MoveSpeed>3.5</MoveSpeed>
         </equippedStatOffsets>
         <relicChance>2</relicChance>
         <equippedAngleOffset>-30</equippedAngleOffset>
@@ -39,7 +39,7 @@
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>15</power>
+                <power>12</power>
                 <cooldownTime>1</cooldownTime>
             </li>
             <li>
@@ -47,7 +47,7 @@
                 <capacities>
                     <li>Stab</li>
                 </capacities>
-                <power>50</power>
+                <power>20</power>
                 <cooldownTime>1</cooldownTime>
             </li>
             <li>
@@ -55,7 +55,7 @@
                 <capacities>
                     <li>Cut</li>
                 </capacities>
-                <power>50</power>
+                <power>20</power>
                 <cooldownTime>1</cooldownTime>
             </li>
         </tools>

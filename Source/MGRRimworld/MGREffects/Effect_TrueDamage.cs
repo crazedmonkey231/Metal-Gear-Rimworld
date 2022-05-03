@@ -14,16 +14,23 @@ namespace MGRRimworld
 
         private int verVal = 5;
         private int dmgNum = 100;
-        private bool validTarg;
         private IntVec3 center;
         private bool isInBounds;
         private bool flag1;
         private static readonly Material bladeMat = MaterialPool.MatFrom("UI/BloodMist", false);
 
+        public override bool Available()
+        {
+
+            return true;
+
+        }
+
         public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo targ)
         {
-            this.validTarg = targ.IsValid && targ.CenterVector3.InBounds((((Effect_TrueDamage)this).CasterPawn).Map) && !targ.Cell.Fogged((((Effect_TrueDamage)this).CasterPawn).Map) && targ.Cell.Walkable((((Effect_TrueDamage)this).CasterPawn).Map) && (double)(root - targ.Cell).LengthHorizontal < (double)((Effect_TrueDamage)this).verbProps.range;
-            return this.validTarg;
+
+            return true;
+
         }
 
         public static int GetWeaponDmg(Pawn pawn)
@@ -39,14 +46,11 @@ namespace MGRRimworld
         {
             bool flag1 = false;
 
-
             if (((Effect_TrueDamage)this).CasterPawn.equipment.Primary != null && this.CasterPawn.IsColonist)
             {
-
                 bool flag2;
                 if (((Effect_TrueDamage)this).currentTarget != (LocalTargetInfo)(Thing)null && (((Effect_TrueDamage)this).CasterPawn) != null)
                 {
-
                     this.center = ((Effect_TrueDamage)this).currentTarget.Cell;
                     Vector3 centerVector3 = ((Effect_TrueDamage)this).currentTarget.CenterVector3;
                     flag2 = ((Effect_TrueDamage)this).currentTarget.Cell.IsValid;
@@ -70,6 +74,7 @@ namespace MGRRimworld
                         {
                             try
                             {
+                                Log.Message("Can hit target");
                                 ThingSelectionUtility.SelectNextColonist();
                                 ((Effect_TrueDamage)this).CasterPawn.DeSpawn(DestroyMode.WillReplace);
                                 this.SearchForTargets(this.center, 3, map, casterPawn);

@@ -7,6 +7,7 @@ namespace MGRRimworld.MGRDefOf
     class MGRDefOf
     {
         public static AbilityDef NanomachineCoreUnleashed;
+        public static AbilityDef TrueDamageAbility;
 
         public static ThingDef MGR_Mote_BloodSquirt;
         public static ThingDef MGR_Mote_CrossStrike;
@@ -17,5 +18,6 @@ namespace MGRRimworld.MGRDefOf
 
         public static HediffDef NanomachineCore;
         public static HediffDef NanomachineCorePower;
+        public static HediffDef DuelistObjectifierPower;
     }
 }
