@@ -29,7 +29,7 @@
             <Mass>1.5</Mass>
         </statBases>
         <equippedStatOffsets>
-			<MoveSpeed>3.5</MoveSpeed>
+			<MoveSpeed>5</MoveSpeed>
         </equippedStatOffsets>
         <relicChance>2</relicChance>
         <equippedAngleOffset>-30</equippedAngleOffset>
@@ -47,7 +47,7 @@
                 <capacities>
                     <li>Stab</li>
                 </capacities>
-                <power>20</power>
+                <power>25</power>
                 <cooldownTime>1</cooldownTime>
             </li>
             <li>
@@ -55,7 +55,7 @@
                 <capacities>
                     <li>Cut</li>
                 </capacities>
-                <power>20</power>
+                <power>25</power>
                 <cooldownTime>1</cooldownTime>
             </li>
         </tools>
