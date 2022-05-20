@@ -17,10 +17,10 @@
         </weaponTags>
         <generateCommonality>0.0</generateCommonality>
         <costList>
-            <ComponentIndustrial>5</ComponentIndustrial>
-            <ComponentSpacer>3</ComponentSpacer>
-            <Steel>25</Steel>
-            <Plasteel>10</Plasteel>
+            <ComponentIndustrial>15</ComponentIndustrial>
+            <ComponentSpacer>10</ComponentSpacer>
+            <Steel>75</Steel>
+            <Plasteel>75</Plasteel>
             <Gold>10</Gold>
         </costList>
         <thingSetMakerTags>
@@ -48,6 +48,7 @@
                 </capacities>
                 <power>15</power>
                 <cooldownTime>0.75</cooldownTime>
+				<armorPenetration>1.03</armorPenetration>
             </li>
             <li>
                 <label>edge</label>
@@ -56,6 +57,7 @@
                 </capacities>
                 <power>35</power>
                 <cooldownTime>0.75</cooldownTime>
+				<armorPenetration>1.03</armorPenetration>
             </li>
         </tools>
         <recipeMaker>
@@ -83,7 +85,7 @@
 
     <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
         <defName>MeleeWeapon_MGR_Katana_Jump</defName>
-        <label>Duelist Objectifier (JUMP)</label>
+        <label>Duelist Objectifier (RUSH)</label>
         <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.\n\nThis variant comes with a jump ability and counts as a ranged weapon.</description>
         <graphicData>
             <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
@@ -97,10 +99,10 @@
         </weaponTags>
         <generateCommonality>0.0</generateCommonality>
         <costList>
-            <ComponentIndustrial>5</ComponentIndustrial>
-            <ComponentSpacer>3</ComponentSpacer>
-            <Steel>25</Steel>
-            <Plasteel>10</Plasteel>
+            <ComponentIndustrial>15</ComponentIndustrial>
+            <ComponentSpacer>10</ComponentSpacer>
+            <Steel>75</Steel>
+            <Plasteel>75</Plasteel>
             <Gold>10</Gold>
         </costList>
         <thingSetMakerTags>
@@ -128,6 +130,7 @@
                 </capacities>
                 <power>15</power>
                 <cooldownTime>0.75</cooldownTime>
+				<armorPenetration>1.03</armorPenetration>
             </li>
             <li>
                 <label>edge</label>
@@ -136,6 +139,7 @@
                 </capacities>
                 <power>35</power>
                 <cooldownTime>0.75</cooldownTime>
+				<armorPenetration>1.03</armorPenetration>
             </li>
         </tools>
         <recipeMaker>
@@ -201,7 +205,8 @@
         </recipeMaker>
         <generateCommonality>0.0</generateCommonality>
         <costList>
-            <ComponentIndustrial>1</ComponentIndustrial>
+            <ComponentIndustrial>3</ComponentIndustrial>
+            <ComponentSpacer>5</ComponentSpacer>
             <Steel>20</Steel>
             <Plasteel>20</Plasteel>
             <Synthread>5</Synthread>

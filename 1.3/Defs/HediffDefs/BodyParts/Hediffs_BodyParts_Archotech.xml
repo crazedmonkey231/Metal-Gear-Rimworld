@@ -23,9 +23,12 @@
             <DeteriorationRate>0</DeteriorationRate>
         </statBases>
         <costList>
-            <ComponentSpacer>5</ComponentSpacer>
-            <Steel>50</Steel>
-            <Plasteel>50</Plasteel>
+            <ComponentSpacer>15</ComponentSpacer>
+            <ComponentIndustrial>25</ComponentIndustrial>
+            <Steel>75</Steel>
+            <Plasteel>75</Plasteel>
+			<Uranium>25</Uranium>
+            <Gold>10</Gold>
         </costList>
         <recipeMaker>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -57,10 +60,8 @@
 		<stages>
 		  <li>
 			<statOffsets>
-			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
-			  <MeleeDodgeChance>2</MeleeDodgeChance>
-			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+			  <IncomingDamageFactor>-0.1</IncomingDamageFactor>
+			  <MeleeDodgeChance>1</MeleeDodgeChance>
 			</statOffsets>
 		  </li>
 		</stages>
@@ -162,10 +163,8 @@
 		<stages>
 		  <li>
 			<statOffsets>
-			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
-			  <MeleeDodgeChance>2</MeleeDodgeChance>
-			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+			  <IncomingDamageFactor>-0.05</IncomingDamageFactor>
+			  <MeleeDodgeChance>1</MeleeDodgeChance>
 			  <MoveSpeed>0.5</MoveSpeed>
 			</statOffsets>
 		  </li>
@@ -258,7 +257,7 @@
 	<AbilityDef Name="NanomachineCoreUnleashedBase">
 		<defName>NanomachineCoreUnleashed</defName>
 		<label>Nano\nMachines\nUnleashed</label>
-		<description>Unleash the full power of the nanomachine core. Draining all power from all batteries and gaining power equivalent to power absorbed, creates a solar flare event also preventing continuous power gains.</description>
+		<description>Unleash the full power of the nanomachine core. Draining ALL power from ALL batteries and gaining power equivalent to power absorbed, additionally creates a solar flare event.</description>
 		<targetRequired>False</targetRequired>
 		<gizmoClass>Command_Ability</gizmoClass>
 		<iconPath>UI/explosion</iconPath>
@@ -294,10 +293,7 @@
 			<statOffsets>
 			  <ImmunityGainSpeed>0.2</ImmunityGainSpeed>
 			  <IncomingDamageFactor>-0.2</IncomingDamageFactor>
-			  <MeleeDodgeChance>0.2</MeleeDodgeChance>
-			  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-			  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
-			  <InjuryHealingFactor>1.2</InjuryHealingFactor>
+			  <InjuryHealingFactor>0.2</InjuryHealingFactor>
 			</statOffsets>
 		  </li>
 		</stages>
@@ -328,6 +324,7 @@
         <costList>
             <Chemfuel>50</Chemfuel>
             <Neutroamine>50</Neutroamine>
+			<AIPersonaCore>1</AIPersonaCore>
         </costList>
         <recipeMaker>
             <workSpeedStat>GeneralLaborSpeed</workSpeedStat>

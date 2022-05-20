@@ -13,6 +13,7 @@
             <speed>80</speed>
         </projectile>
     </ThingDef>
+	
     <AbilityDef ParentName="PsycastBase">
         <defName>TrueDamageAbility</defName>
         <label>True Damage Ability</label>

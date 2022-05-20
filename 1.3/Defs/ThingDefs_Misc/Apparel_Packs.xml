@@ -6,6 +6,9 @@
         <thingClass>MGRApparel.MGR_ExoFrame</thingClass>
         <description>Combining a Vehicle-Mounted Active Denial System with the portability of an Exo suit. The D.E.S. can provide the user with impressive resistance against small to medium calibers. Additionally, the D.E.S. uses reactive armor technology that detonates with an explosion similar to an I.E.D. upon broken with a melee weapon.</description>
         <techLevel>Industrial</techLevel>
+		<category>Item</category>
+		<destroyable>True</destroyable>
+        <tickerType>Normal</tickerType>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
             <researchPrerequisite>BigSteel</researchPrerequisite>
@@ -23,10 +26,10 @@
         </recipeMaker>
 		<generateCommonality>0.0</generateCommonality>
         <costList>
-            <Plasteel>25</Plasteel>
-            <Steel>35</Steel>
-            <ComponentIndustrial>5</ComponentIndustrial>
-            <ComponentSpacer>1</ComponentSpacer>
+            <Plasteel>75</Plasteel>
+            <Steel>75</Steel>
+            <ComponentIndustrial>12</ComponentIndustrial>
+            <ComponentSpacer>8</ComponentSpacer>
         </costList>
         <graphicData>
             <texPath>Things/Apparel/Exoframe/MGR_ExoFrame</texPath>
@@ -34,7 +37,6 @@
 			<drawSize>(1,1)</drawSize>
         </graphicData>
 		<size>(1,1)</size>
-        <tickerType>Normal</tickerType>
         <statBases>
             <WorkToMake>14000</WorkToMake>
             <Mass>6</Mass>

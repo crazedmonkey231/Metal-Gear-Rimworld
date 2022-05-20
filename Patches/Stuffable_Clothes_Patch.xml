@@ -23,7 +23,7 @@
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs/ThingDef[defName="MGR_Apparel_Exoframe"]</xpath>
 					<value>
-						<costStuffCount>60</costStuffCount>
+						<costStuffCount>150</costStuffCount>
 					</value>
 				</li>
 			</operations>

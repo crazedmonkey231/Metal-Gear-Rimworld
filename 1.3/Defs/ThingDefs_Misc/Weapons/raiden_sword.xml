@@ -16,10 +16,11 @@
         </weaponTags>
 		<generateCommonality>0.0</generateCommonality>
         <costList>
-            <ComponentIndustrial>5</ComponentIndustrial>
-            <ComponentSpacer>5</ComponentSpacer>
-            <Steel>50</Steel>
-            <Plasteel>50</Plasteel>
+            <ComponentIndustrial>20</ComponentIndustrial>
+            <ComponentSpacer>10</ComponentSpacer>
+            <Steel>60</Steel>
+            <Plasteel>60</Plasteel>
+			<Uranium>15</Uranium>
         </costList>
         <thingSetMakerTags>
             <li>RewardStandardQualitySuper</li>
@@ -30,7 +31,7 @@
         </statBases>
         <equippedStatOffsets>
 			<MoveSpeed>1.5</MoveSpeed>
-			<MeleeHitChance>-3.0</MeleeHitChance>
+			<MeleeHitChance>-0.1</MeleeHitChance>
 			<MeleeDodgeChance>1.5</MeleeDodgeChance>
         </equippedStatOffsets>
         <relicChance>2</relicChance>
@@ -51,6 +52,7 @@
                 </capacities>
                 <power>12</power>
                 <cooldownTime>1</cooldownTime>
+				<armorPenetration>0.79</armorPenetration>
             </li>
             <li>
                 <label>edge</label>
@@ -59,6 +61,7 @@
                 </capacities>
                 <power>30</power>
                 <cooldownTime>1</cooldownTime>
+				<armorPenetration>0.79</armorPenetration>
             </li>
         </tools>
         <recipeMaker>

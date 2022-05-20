@@ -53,9 +53,7 @@ namespace MGRApparel
             get
             {
                 Pawn wearer = this.Wearer;
-                if (!wearer.Spawned || wearer.Dead || wearer.Downed)
-                    return false;
-                return wearer.InAggroMentalState || wearer.Drafted || wearer.Faction.HostileTo(Faction.OfPlayer) && !wearer.IsPrisoner || Find.TickManager.TicksGame < this.lastKeepDisplayTick + this.KeepDisplayingTicks;
+                return wearer.Spawned && !wearer.Dead && !wearer.Downed && (wearer.InAggroMentalState || wearer.Drafted || wearer.Faction.HostileTo(Faction.OfPlayer) && !wearer.IsPrisoner || Find.TickManager.TicksGame < this.lastKeepDisplayTick + 1000);
             }
         }
 
@@ -70,7 +68,7 @@ namespace MGRApparel
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
 
-            foreach (Gizmo gizmo in this.GetGizmos())
+            foreach (Gizmo gizmo in base.GetWornGizmos())
                 yield return gizmo;
 
             if (Find.Selector.SingleSelectedThing == this.Wearer)
@@ -127,11 +125,10 @@ namespace MGRApparel
                 if (dinfo.Weapon == null || dinfo.Weapon.IsMeleeWeapon || dinfo.Weapon.defName.Equals(MGRDefOf.MeleeWeapon_MGR_Katana.defName))
                 {
                     Log.Message("instigator " + dinfo.Instigator + " : target" + dinfo.IntendedTarget);
-
-                    DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, armorPenetration:200, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
+                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 3f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
+                    DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, armorPenetration: 200, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
                     recoil.SetAllowDamagePropagation(false);
                     recoil.Instigator.TakeDamage(dinfo);
-                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 1f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
                 }
 
                 this.Break();

@@ -1,4 +1,8 @@
-﻿using Verse;
+﻿using MGRRimworld.MGRComps;
+using RimWorld;
+using System;
+using System.Text;
+using Verse;
 
 namespace MGRRimworld.MGRHediffs
 {
@@ -23,18 +27,18 @@ namespace MGRRimworld.MGRHediffs
         public override void PostAdd(DamageInfo? dinfo)
         {
 
-            if(dinfo != null)
+            if (dinfo != null)
             {
-
                 float pwrAbsorbed = ((DamageInfo)dinfo).Amount;
-                Log.Message("Power Absorbed from all power grids: " + pwrAbsorbed);
-                Log.Message("Added Power");
-                this.Severity += pwrAbsorbed;
+                if (pwrAbsorbed > 1) {
+                    Log.Message("Power Absorbed from all power grids: " + pwrAbsorbed);
+                    //this.Severity += pwrAbsorbed;
+                    this.TryGetComp<HediffCompAdjustPower>().CompPostPostAdd(dinfo);
+                }
             }
 
             base.PostAdd(null);
         }
-
         public override void PostRemoved()
         {
 

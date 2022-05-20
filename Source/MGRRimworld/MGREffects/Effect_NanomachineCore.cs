@@ -53,19 +53,12 @@ namespace MGRRimworld
                 SendLetter();
                 map.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(GameConditionDefOf.SolarFlare, duration: 30000));
             }
-            float totalEngery = RemoveAllMapBatteriesCharge();
-            if (totalEngery > 0)
+            float totalEnergy = RemoveAllMapBatteriesCharge();
+            if (totalEnergy > 0)
             {
                 DamageInfo dinfo = new DamageInfo();
-                dinfo.SetAmount(totalEngery);
-                if (casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower) != null)
-                {
-                    casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).PostAdd(dinfo);
-                }
-                else
-                {
-                    casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
-                }
+                dinfo.SetAmount(totalEnergy);
+                casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
             }
         }
 

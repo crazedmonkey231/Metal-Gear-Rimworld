@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="MGRComps\CompProperties_ItemAddAbility.cs" />
     <Compile Include="MGRComps\CompItemAddAbility.cs" />
+    <Compile Include="MGRComps\HediffCompAdjustPower.cs" />
+    <Compile Include="MGRComps\HediffCompProperties_AdjustPower.cs" />
     <Compile Include="MGREffects\Effect_NanomachineCore.cs" />
     <Compile Include="MGREffects\Effect_TrueDamage.cs" />
     <Compile Include="MGRGizmo\MGR_Gizmo_ExoFrame.cs" />
