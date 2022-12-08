@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using MGRRimworld.MGRComps;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +19,14 @@ namespace MGRRimworld
 
         public override bool Available()
         {
-
             return true;
-
         }
+
         public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo targ)
         {
-
             return true;
-
         }
+
         protected override bool TryCastShot()
         {
 
@@ -58,7 +57,11 @@ namespace MGRRimworld
             {
                 DamageInfo dinfo = new DamageInfo();
                 dinfo.SetAmount(totalEnergy);
-                casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
+                Log.Message("Adding hediff");
+                if (casterPawn.health.hediffSet.HasHediff(MGRDefOf.MGRDefOf.NanomachineCorePower))
+                    casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).TryGetComp<HediffCompAdjustPower>().CompPostPostAdd(dinfo);
+                else
+                    casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
             }
         }
 
@@ -68,7 +71,7 @@ namespace MGRRimworld
             float totalEnergy = 0.0f;
             pns.ForEach(i =>
             {
-                if (i.batteryComps.Any<CompPowerBattery>((Predicate<CompPowerBattery>)(x => (double)x.StoredEnergy > 0.0)))
+                if (i.batteryComps.Any(x => (double)x.StoredEnergy > 0.0))
                 {
                     i.batteryComps.ForEach(j =>
                     {
@@ -79,18 +82,16 @@ namespace MGRRimworld
             });
             return totalEnergy;
         }
+
         public void CastingEffect(IntVec3 center, float radius, Map map, Pawn pawn)
         {
-
-            IEnumerable<IntVec3> source = GenRadial.RadialCellsAround(center, radius, true);
-            for (int index = 0; index < source.Count<IntVec3>(); ++index)
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(center, radius, true))
             {
-                IntVec3 intVec3 = source.ToArray<IntVec3>()[index];
-                FleckMaker.ThrowDustPuff(intVec3, map, 0.2f);
-                GenExplosion.DoExplosion(intVec3, map, radius, DamageDefOf.Smoke, pawn, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 0f);
-                source.GetEnumerator().MoveNext();
+                FleckMaker.ThrowDustPuff(cell, map, 0.2f);
+                GenExplosion.DoExplosion(cell, map, radius, DamageDefOf.Smoke, pawn, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Filth_Ash, postExplosionSpawnChance: 0f);
             }
         }
+
         private void SendLetter()
         {
             this.letter = (ChoiceLetter)LetterMaker.MakeLetter((TaggedString)this.letterLabel, (TaggedString)this.letterText, LetterDefOf.NeutralEvent);

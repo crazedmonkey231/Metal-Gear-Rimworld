@@ -4,3 +4,5 @@ F:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Metal-Gear-Rimworld\
 F:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Metal-Gear-Rimworld\Source\MGRRimworld\obj\Debug\MGRRimworld.dll
 F:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Metal-Gear-Rimworld\Source\MGRRimworld\obj\Debug\MGRRimworld.pdb
 F:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Metal-Gear-Rimworld\Source\MGRRimworld\obj\Debug\MGRRimworld.csproj.AssemblyReference.cache
+F:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Metal-Gear-Rimworld\1.4\Assemblies\MGRRimworld.dll
+F:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Metal-Gear-Rimworld\1.4\Assemblies\MGRRimworld.pdb

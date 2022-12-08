@@ -21,7 +21,7 @@ namespace MGRApparel.MGRGizmo
         
         public MGR_Gizmo_ExoFrame()
         {
-            base.order = -100f;
+            base.Order = -100f;
         }
 
         public override float GetWidth(float maxWidth)

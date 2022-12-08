@@ -109,35 +109,45 @@ namespace MGRApparel
 
 
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
-            {
+        {
             if (this.ShieldState != ShieldState.Active)
                 return false;
+
             if (dinfo.Def == DamageDefOf.EMP)
             {
                 this.energy = 0.0f;
                 this.Break();
                 return false;
             }
-            this.energy -= dinfo.Amount * this.EnergyLossPerDamage;
-            if ((double)this.energy <= 0.0)
-            {
-                Log.Message("broken " + dinfo.ToString() + " : " + dinfo.Weapon.IsMeleeWeapon);
-                if (dinfo.Weapon == null || dinfo.Weapon.IsMeleeWeapon || dinfo.Weapon.defName.Equals(MGRDefOf.MeleeWeapon_MGR_Katana.defName))
-                {
-                    Log.Message("instigator " + dinfo.Instigator + " : target" + dinfo.IntendedTarget);
-                    GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 3f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Gas_Smoke, postExplosionSpawnChance: 1f);
-                    DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, armorPenetration: 200, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
-                    recoil.SetAllowDamagePropagation(false);
-                    recoil.Instigator.TakeDamage(dinfo);
-                }
 
-                this.Break();
+            this.energy -= dinfo.Amount * this.EnergyLossPerDamage;
+
+            if(energy <= 0.0)
+            {
+                Break();
+                if (dinfo.Weapon == null 
+                    || dinfo.Weapon.IsMeleeWeapon 
+                    || dinfo.Weapon.defName.Equals(MGRDefOf.MeleeWeapon_MGR_Katana.defName)
+                    || dinfo.Weapon.defName.Equals(MGRDefOf.MeleeWeapon_MGR_Katana_Jump.defName))
+                {
+                    Recoil(dinfo);
+                }
+                return false;
             }
             else
             {
-                this.AbsorbedDamage(dinfo);
+                AbsorbedDamage(dinfo);
             }
             return true;
+        }
+
+        private static void Recoil(DamageInfo dinfo)
+        {
+            Log.Message("instigator " + dinfo.Instigator + " : target" + dinfo.IntendedTarget);
+            GenExplosion.DoExplosion(dinfo.Instigator.Position, dinfo.Instigator.Map, 3f, DamageDefOf.Smoke, dinfo.Instigator, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Filth_Dirt, postExplosionSpawnChance: 1f);
+            DamageInfo recoil = new DamageInfo(DamageDefOf.Bomb, 100, armorPenetration: 200, instigator: dinfo.Instigator, hitPart: dinfo.HitPart);
+            recoil.SetAllowDamagePropagation(false);
+            recoil.Instigator.TakeDamage(dinfo);
         }
 
         public void KeepDisplaying() => this.lastKeepDisplayTick = Find.TickManager.TicksGame;
