@@ -90,6 +90,9 @@ namespace MGRRimworld
                     {
                         dmgNum *= 10;
                         MoteMaker.ThrowText(victim.DrawPos, victim.Map, "Critical Hit");
+                        FleckCreationData dataAttachedOverlay = FleckMaker.GetDataAttachedOverlay(victim, FleckDefOf.FlashHollow_Red, Vector3.zero, 5);
+                        dataAttachedOverlay.link.detachAfterTicks = 5;
+                        victim.Map.flecks.CreateFleck(dataAttachedOverlay);
                     }
                     MGR_MoteMaker.ThrowCrossStrike(location, map, 1f);
                     MGR_MoteMaker.ThrowBloodSquirt(location, map, 1.5f);

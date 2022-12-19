@@ -1,12 +1,18 @@
 ﻿using MGRRimworld.MGRComps;
+using MGRRimworld.MGRUtils;
 using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using UnityEngine;
 using Verse;
+using Verse.Noise;
+using Verse.Sound;
 
 namespace MGRRimworld
 {
+    [StaticConstructorOnStartup]
     class Effect_NanomachineCore : Verb_LaunchProjectile
     {
         private Pawn casterPawn;
@@ -16,6 +22,8 @@ namespace MGRRimworld
         protected string letterLabel = "Nanomachines Unleashed";
         protected string letterText = "Nanomachine core has been unleashed, initating a solar flare.";
         protected ChoiceLetter letter;
+
+        private List<IntVec3> targets;
 
         public override bool Available()
         {
@@ -35,18 +43,18 @@ namespace MGRRimworld
 
             if (casterPawn.IsColonist)
             {
-
-                Unleash();
-                CastingEffect(casterPawn.Position, 2, map, casterPawn);
-
+                float power = Unleash();
+                CastingEffect(power, casterPawn.Position, map, casterPawn);
                 return true;
 
             }
             return false;
         }
 
-        private void Unleash()
+
+        private float Unleash()
         {
+            float power = 0;
             if (map.GameConditionManager.GetActiveCondition(GameConditionDefOf.SolarFlare) == null)
             {
                 SendLetter();
@@ -59,10 +67,15 @@ namespace MGRRimworld
                 dinfo.SetAmount(totalEnergy);
                 Log.Message("Adding hediff");
                 if (casterPawn.health.hediffSet.HasHediff(MGRDefOf.MGRDefOf.NanomachineCorePower))
-                    casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).TryGetComp<HediffCompAdjustPower>().CompPostPostAdd(dinfo);
+                {
+                    HediffCompAdjustPower comp = casterPawn.health.hediffSet.GetFirstHediffOfDef(MGRDefOf.MGRDefOf.NanomachineCorePower).TryGetComp<HediffCompAdjustPower>();
+                    comp.CompPostPostAdd(dinfo);                
+                }
                 else
                     casterPawn.health.AddHediff(MGRDefOf.MGRDefOf.NanomachineCorePower, dinfo: dinfo);
+                power = (float)Math.Round((double)((float)(totalEnergy / 600.0f) * 0.15), 2);
             }
+            return power;
         }
 
         private float RemoveAllMapBatteriesCharge()
@@ -77,18 +90,30 @@ namespace MGRRimworld
                     {
                         totalEnergy += j.StoredEnergy;
                         j.DrawPower(j.StoredEnergy);
+                        MGR_Lightning_Creator.DoStrike(j.parent.Position, map);
                     });
                 }
             });
             return totalEnergy;
         }
 
-        public void CastingEffect(IntVec3 center, float radius, Map map, Pawn pawn)
+        public void CastingEffect(float power, IntVec3 center, Map map, Pawn pawn)
         {
-            foreach (IntVec3 cell in GenRadial.RadialCellsAround(center, radius, true))
+            int maxExpDepth = (int)Math.Min(Math.Max(power, 0.0f), 54.0f);
+            float extraExp = 0;
+            if (power >= 54)
+                extraExp = power / maxExpDepth;
+
+            int maxExtraExp = (int)Math.Min(Math.Max(extraExp, 0.0f), 3.0f);
+
+            List<Thing> ignoreThings = new List<Thing>() { pawn };
+            
+            IEnumerable<IntVec3> cells = GenRadial.RadialCellsAround(center, maxExpDepth, true).Where(c => c.IsValid && c.InBounds(map) && !c.Equals(center));
+            for(int i = 0; i < maxExpDepth; i++)
             {
-                FleckMaker.ThrowDustPuff(cell, map, 0.2f);
-                GenExplosion.DoExplosion(cell, map, radius, DamageDefOf.Smoke, pawn, damAmount: 0, postExplosionSpawnThingDef: ThingDefOf.Filth_Ash, postExplosionSpawnChance: 0f);
+                IntVec3 fireLoc = cells.RandomElement();
+                MGR_Lightning_Creator.DoStrike(fireLoc, map, ignoreThings);
+                GenExplosion.DoExplosion(fireLoc, map, 3 + maxExtraExp, DamageDefOf.Flame, pawn, 5, 35, ignoredThings: ignoreThings, postExplosionSpawnThingDef: ThingDefOf.Filth_Ash, postExplosionSpawnChance: 1, postExplosionSpawnThingCount: 1, postExplosionGasType: GasType.BlindSmoke);
             }
         }
 

@@ -1,7 +1,11 @@
 ﻿using RimWorld;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Noise;
+using Verse.Sound;
 
 namespace MGRRimworld.MGRComps
 {
@@ -12,9 +16,10 @@ namespace MGRRimworld.MGRComps
         public HediffCompProperties_AdjustPower() => this.compClass = typeof(HediffCompAdjustPower);
     }
 
+    [StaticConstructorOnStartup]
     class HediffCompAdjustPower : HediffComp
     {
-        private float power;
+        private float power = 0;
 
         private HediffCompProperties_AdjustPower Props => (HediffCompProperties_AdjustPower)this.props;
 
@@ -44,7 +49,7 @@ namespace MGRRimworld.MGRComps
         public override void CompExposeData()
         {
             base.CompExposeData();
-            Scribe_Values.Look(ref power, "power");
+            Scribe_Values.Look(ref power, "power", 0);
         }
     }
 }
